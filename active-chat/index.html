@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitch Chat Counter</title>
+  <link rel="stylesheet" href="https://ez-css.now.sh">
+</head>
+<body style="background-color: white;">
+  <div>
+    <small id="status"></small>
+    <h1 id="count">Waiting for messages...</h1>
+    <h3 id="mods" style="color:rgba(76, 209, 55,1.0)"></h3>
+    <h3 id="vips" style="color: rgba(252, 66, 123,1.0)"></h3>
+    <h3 id="subs" style="color: rgba(83, 82, 237,1.0)"></h3>
+    <h3 id="users"></h3>
+  </div>
+  <script src="../tmi.min.js"></script>
+  <script src="activeChat.js"></script>
+</body>
+</html>
