@@ -4,9 +4,16 @@ const vipsElement = document.querySelector('#vips');
 const subsElement = document.querySelector('#subs');
 const usersElement = document.querySelector('#users');
 const statusElement = document.querySelector('#status');
+const invertElement = document.querySelectorAll('.invert-text');
 
 const params = new URLSearchParams(window.location.search);
 const channel = params.get('channel') || 'JD_Code';
+const bg_color = (params.get('bg') || 'white').toLowerCase();
+const text_color = (params.get('text') || 'black').toLowerCase();
+
+const allowedBGColors = ['transparent','white','black','grey'];
+const allowedTextColors = ['white','black'];
+
 const client = new tmi.Client({
   connection: {
     secure: true,
@@ -14,6 +21,22 @@ const client = new tmi.Client({
   },
   channels: [channel],
 });
+
+if (allowedBGColors.includes(bg_color)) {
+  document.querySelector('body').style.backgroundColor = bg_color;
+  if (bg_color === "black") {
+    for (let i = 0; i < invertElement.length; i++) {
+      invertElement[i].style.color = 'white';
+    }
+  }
+}
+
+if (allowedTextColors.includes(text_color)) {
+  for (let i = 0; i < invertElement.length; i++) {
+    invertElement[i].style.color = text_color;
+  }
+}
+
 
 client.connect().then(() => {
   statusElement.textContent = `Active chatters in ${channel}... `;

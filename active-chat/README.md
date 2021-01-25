@@ -9,9 +9,11 @@ Add the twitch username as a query in the url:
 | Query Name        | Parameter           |
 | :-------------: |:-------------:|
 | channel      | Twitch Channel Name |
-| # bg-color #     | "White" or "Transparent"      |
+| bg    | "Black", "Grey", "White" or "Transparent"   |
+| text  | "White" or "Black" |
 
-Every time you refresh the page all previous data is lost
+Add more parameters like this:
 
-## TODO
- - Impliment bg-color in JS
+` https://jamiehughes.co/twitch/active-chat/?channel=JD_Code&bg=black&text=white `
+
+**Every time you refresh the page all previous data is lost**
