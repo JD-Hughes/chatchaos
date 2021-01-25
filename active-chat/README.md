@@ -6,11 +6,11 @@ Add the twitch username as a query in the url:
 
 ` https://jamiehughes.co/twitch/active-chat/?channel=JD_Code `
 
-| Query Name        | Parameter           |
-| :-------------: |:-------------:|
-| channel      | Twitch Channel Name |
-| bg    | "Black", "Grey", "White" or "Transparent"   |
-| text  | "White" or "Black" |
+| Query Name |                 Parameter                 |
+|:----------:|:-----------------------------------------:|
+|  channel   |            Twitch Channel Name            |
+|     bg     | "Black", "Grey", "White" or "Transparent" |
+|    text    |            "White" or "Black"             |
 
 Add more parameters like this:
 
