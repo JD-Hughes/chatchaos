@@ -8,8 +8,8 @@ const invertElement = document.querySelectorAll('.invert-text');
 
 const params = new URLSearchParams(window.location.search);
 const channel = params.get('channel') || 'JD_Code';
-const bg_color = (params.get('bg') || 'white').toLowerCase();
-const text_color = (params.get('text') || 'black').toLowerCase();
+const bg_color = (params.get('bg') || 'NULL').toLowerCase();
+const text_color = (params.get('text') || 'NULL').toLowerCase();
 
 const allowedBGColors = ['transparent','white','black','grey'];
 const allowedTextColors = ['white','black'];
@@ -27,6 +27,7 @@ if (allowedBGColors.includes(bg_color)) {
   if (bg_color === "black") {
     for (let i = 0; i < invertElement.length; i++) {
       invertElement[i].style.color = 'white';
+console.log(invertElement[i]);
     }
   }
 }
