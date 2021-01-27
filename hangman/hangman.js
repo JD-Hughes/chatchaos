@@ -18,7 +18,8 @@ function displayWord() {
     }
     wordDisplay.innerText = obscuredWord;
     if (!obscuredWord.includes("_")) {
-        alert("FINISHED")
+        wordDisplay.innerText = hiddenWord;
+        alert("FINISHED");
     }
 }
 
