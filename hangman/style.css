@@ -16,7 +16,7 @@ h1 {
   font-size: 5vw;
 }
 
-#wordbox {
+#word-input {
     /*opacity: 0;*/
     margin: 30px auto 0;
     display: block;
