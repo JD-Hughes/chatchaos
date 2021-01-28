@@ -29,7 +29,7 @@ function displayWord() {
     wordDisplay.innerText = obscuredWord;
     if (!obscuredWord.includes("_")) {
         wordDisplay.innerText = hiddenWord;
-        wordDisplay.style.color = "#3ed822";
+        wordDisplay.style.color = "#2ecc71";
     }
 }
 
