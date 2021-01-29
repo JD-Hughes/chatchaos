@@ -1,28 +1,81 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>Twitch Chat Games</title>
-  <meta name="description" content="Twitch Chat Games" />
-  <meta name="author" content="Jamie Hughes" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web based games centered around twitch chat intergration">
+    <meta name="author" content="Jamie Hughes" />
+    <title>Twitch Chat Games &ndash; Landing Page</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <label">Background Color:</label>
-    <select name="Background Color Picker" id="bg-color">
-      <option value="white">White</option>
-      <option value="black">Black</option>
-      <option value="grey">Grey</option>
-      <option value="transparent">Transparent</option>
-    </select>
-    <br><br>
-    <input id="channel-name" type="text" />
-    <button onclick="goToPage('active-chat')">Active Chat</button>
-    <button onclick="goToPage('hangman')">Hangman</button>
+
+    <div class="splash-container">
+        <h1 class="splash-head">ChatChaos.tv</h1>
+    </div>
+    <div id="nav-bar">
+        <h2>
+            ENTER YOUR TWITCH CHANNEL NAME
+        </h2>
+        <input id="channel-name" type="text" />
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <h2 class="content-head is-center">GAMES</h2>
+
+            <div class="pure-g">
+                <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                    <h3 class="content-subhead">
+                        Hangman
+                        <button class="launch-button" onclick="goToPage('hangman')">LAUNCH</button>
+                    </h3>
+
+                    <p>
+                        Chat loves to play hangman
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="ribbon l-box-lrg pure-g">
+            <h2 class="content-head content-head-ribbon is-center">TOOLS</h2>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    Active Chat
+                    <button class="launch-button" onclick="goToPage('active-chat')">LAUNCH</button>
+                </h3>
+                <p>
+                    View your currently active chatters
+                </p>
+                <label">Background Color:</label>
+                    <select name="Background Color Picker" id="bg-color">
+                        <option value="white">White</option>
+                        <option value="black">Black</option>
+                        <option value="grey">Grey</option>
+                        <option value="transparent">Transparent</option>
+                    </select>
+            </div>
+            <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+                <h3 class="content-subhead">
+                    Get Started Quickly
+                </h3>
+                <p>
+                    Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+                </p>
+            </div>
+        </div>
+
+    </div>
     <script type="text/javascript" src="router.js"></script>
+    <script type="text/javascript" src="sticky.js"></script>
 </body>
 
 </html>

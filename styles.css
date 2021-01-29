@@ -11,8 +11,9 @@
 body {
     line-height: 1.7em;
     color: #7f8c8d;
-    font-size: 13px;
+    font-size: 20px;
     font-family: 'Space Grotesk', sans-serif;
+    margin: 0;
 }
 
 h1,
@@ -97,46 +98,49 @@ a.pure-button-primary {
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 30vw;
+    height: 12vw;
     top: 0;
     left: 0;
-    position:sticky;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.splash {
-    /* absolute center .splash within .splash-container */
-    height: 40%;
-    margin: 0 auto;
-    position: absolute;
-    top: 4vw;
-    text-align: center;
-    text-transform: uppercase;
-}
-
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    font-size: 5vw;
+    font-size: 7vw;
     font-weight: bold;
     color: white;
     border: 3px solid white;
-    padding: 5px 5px;
-    font-weight: 100;
+    padding: 10px;
     border-radius: 5px;
     line-height: 1em;
 }
 
-/* This is the subheading that appears on the blue section */
-.splash-subhead {
-    color: white;
-    letter-spacing: 0.05em;
-    opacity: 0.8;
-    font-size: 2vw;
+#nav-bar {
+    width: 100%;
+    background: #1f8dd6;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.2em;
 }
 
-input[type=text] {
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content-wrapper {
+    padding-top: 5vw;
+  }
+
+#channel-name {
     background-color: #0f6ba8;
     background-image: url('https://cdn.icon-icons.com/icons2/1826/PNG/512/4202062logosocialsocialmediatwitch-115626_115675.png');
     background-size: 35px;
@@ -147,11 +151,62 @@ input[type=text] {
     color: white;
     border: none;
     border-radius: 4px;
-    width: 25%;
+    width: 30%;
+    max-width: 400px;
+    min-width: 200px;
     height: 50px;
     padding-left: 65px;
-    font-size: 40px;
+    font-size: 20px;
+    margin: 1vw;
+    text-transform: uppercase;
   }
+
+
+  .launch-button {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    border-radius: 10rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 0.15rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    border: 0;
+    margin-left: 15px;
+  }
+  .launch-button:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0cf;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+  .launch-button:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #008fb3;
+    transition: all 0.3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+  .launch-button:hover {
+    color: #fff;
+  }
+  .launch-button:hover:before {
+    width: 100%;
+  }
+
 
 /*
  * -- CONTENT STYLES --
@@ -177,7 +232,7 @@ input[type=text] {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+    margin: 1.5em 0 1em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
