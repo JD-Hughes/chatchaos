@@ -7,7 +7,7 @@ const statusElement = document.querySelector('#status');
 const invertElement = document.querySelectorAll('.invert-text');
 
 const params = new URLSearchParams(window.location.search);
-const channel = params.get('channel') || 'JD_Code';
+const channel = params.get('channel') || 'JH_Code';
 const bg_color = (params.get('bg') || 'NULL').toLowerCase();
 const text_color = (params.get('text') || 'NULL').toLowerCase();
 

@@ -5,7 +5,7 @@ const wordInput = document.getElementById("word-input");
 const validChars = /^[A-Z]+$/;
 
 const params = new URLSearchParams(window.location.search);
-const channel = params.get('channel') || 'JD_Code';
+const channel = params.get('channel') || 'JH_Code';
 
 var hiddenWord = '';
 var foundChars = [];
@@ -41,14 +41,14 @@ function guessLetter(letter) {
 }
 
 function setWord(word) {
-    if ((word.length > 3) && (word.length <= 20)) {
+    if ((word.length > 3) && (word.length <= 15)) {
         if (validChars.test(word.toUpperCase())) {
             foundChars = [];
             hiddenWord = word.toUpperCase();
             wordDisplay.style.color = "#ffffff";
             displayWord();
         } else alert("Word can only contain letters");
-    } else alert("Word length must be between 3 and 15 characters");
+    } else alert("Word length must be between 3 and 15 characters (Yes there is a limit)");
 }
 
 function toggleVis() {
