@@ -4,7 +4,7 @@ function goToPage(destination) {
     console.log(channelName);
 
     if (channelName === "") {
-        alert("Pleas enter a channel name");
+        alert("Pleas enter a channel name (At the top of the page)");
     } else {
         window.location.href = `${destination}/?channel=${channelName}&bg=${backgroundColor}`;
     }
