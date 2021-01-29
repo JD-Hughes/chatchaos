@@ -126,6 +126,7 @@ a.pure-button-primary {
     align-items: center;
     font-size: 20px;
     line-height: 1.2em;
+    z-index: 3;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
