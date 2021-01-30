@@ -5,6 +5,10 @@ const subsElement = document.querySelector('#subs');
 const usersElement = document.querySelector('#users');
 const statusElement = document.querySelector('#status');
 const invertElement = document.querySelectorAll('.invert-text');
+const countBRmodsElement = document.querySelector('#countBRmods'); //FINISH THIS!!!!!!!!
+const countBRvipsElement = document.querySelector('#countBRvips'); //FINISH THIS!!!!!!!!
+const countBRsubsElement = document.querySelector('#countBRsubs'); //FINISH THIS!!!!!!!!
+const countBRusersElement = document.querySelector('#countBRusers'); //FINISH THIS!!!!!!!!
 
 const params = new URLSearchParams(window.location.search);
 const channel = params.get('channel') || 'JH_Code';
@@ -64,8 +68,12 @@ client.on('message', (wat, tags, message, self) => {
   totalCount = Object.keys(mods).length + Object.keys(subs).length + Object.keys(users).length;
   countElement.textContent = totalCount;
   modsElement.textContent = Object.keys(mods).join(', ');
+  countBRmodsElement.textContent = Object.keys(mods).length;
   vipsElement.textContent = Object.keys(vips).join(', ');
+  countBRvipsElement.textContent = Object.keys(vips).length;
   subsElement.textContent = Object.keys(subs).join(', ');
+  countBRsubsElement.textContent = Object.keys(subs).length;
   usersElement.textContent = Object.keys(users).join(', ');
+  countBRusersElement.textContent = Object.keys(users).length;
   }
 );
