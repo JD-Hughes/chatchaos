@@ -65,7 +65,7 @@ client.on('message', (wat, tags, message, self) => {
     users[tags.username] = true;
   }
   // display current count page.
-  totalCount = Object.keys(mods).length + Object.keys(subs).length + Object.keys(users).length;
+  totalCount = Object.keys(mods).length + + Object.keys(vips).length + Object.keys(subs).length + Object.keys(users).length;
   countElement.textContent = totalCount;
   modsElement.textContent = Object.keys(mods).join(', ');
   countBRmodsElement.textContent = Object.keys(mods).length;
