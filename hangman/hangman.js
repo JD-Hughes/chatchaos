@@ -41,6 +41,7 @@ function guessLetter(letter) {
 }
 
 function setWord(word) {
+    if (!word) word = wordInput.value;
     if ((word.length > 3) && (word.length <= 15)) {
         if (validChars.test(word.toUpperCase())) {
             foundChars = [];
@@ -62,7 +63,7 @@ function toggleVis() {
 }
 
 client.connect().then(() => {
-    statusElement.textContent = `Connected to: ${channel}`;
+    statusElement.innerHTML = `Connected to: <span style="font-weight: bold">${channel}</span>`;
 });
 
 client.on('message', (channel, tags, message, self) => {

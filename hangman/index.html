@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twitch Plays Hangman</title>
   <link rel="stylesheet" href="hangman-styles.css">
 </head>
+
 <body>
   <small id="status">Not Connected</small>
   <div class="container">
-    <h1 id="word-display">TWITCH PLAYS HANGMAN</h1>
+    <div class="play-area">
+      <h1 id="word-display">TWITCH PLAYS HANGMAN</h1>
+    </div>
   </div>
-  <FORM NAME="ControlForm">  
-    <INPUT TYPE=PASSWORD NAME="WordInput" id="word-input"><BR>
-    <INPUT TYPE=BUTTON VALUE="Set Word" onClick="setWord(document.ControlForm.WordInput.value);" id="setButton" class="button">
-    <INPUT TYPE=BUTTON VALUE="Show" onClick="toggleVis();" id="toggleVisBttn" class="button">
-    </FORM>
+  <div class="controls">
+    <div id="word-set-control">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <INPUT TYPE=PASSWORD NAME="WordInput" id="word-input">
+        <INPUT TYPE=BUTTON VALUE="Show" onClick="toggleVis();" id="toggleVisBttn" class="button" style="width: 25%; background: #14397e;">
+      </div>
+      <div style="display: flex; justify-content: space-between">
+        <INPUT TYPE=BUTTON VALUE="Set Word" onClick="setWord();" id="setButton" class="button" style="width: 58%;">
+        <INPUT TYPE=BUTTON VALUE="Random" id="randomButton" class="button" style="width: 40%;">
+      </div>
+    </div>
     <h2> !guess </h2>
+  </div>
   <script src="../tmi.min.js"></script>
   <script src="hangman.js"></script>
 </body>
+
 </html>
