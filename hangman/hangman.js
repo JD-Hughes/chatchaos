@@ -2,6 +2,7 @@ const wordDisplay = document.getElementById("word-display");
 const statusElement = document.getElementById("status");
 const toggleVisButton = document.getElementById("toggleVisBttn");
 const wordInput = document.getElementById("word-input");
+const randomLetterCount = document.getElementById("random-quantity");
 const validChars = /^[A-Z]+$/;
 
 const params = new URLSearchParams(window.location.search);
@@ -17,6 +18,14 @@ const client = new tmi.Client({
     },
     channels: [channel],
 });
+
+function changeRandomValue(amount) {
+    randomLetterCount.innerText = parseInt(randomLetterCount.innerText) + amount;
+}
+
+function setRandomWord() {
+    alert(`Setting random word of length: ${parseInt(randomLetterCount.innerText)}`);
+}
 
 function displayWord() {
     var obscuredWord = '';

@@ -10,18 +10,27 @@
 
 <body>
   <small id="status">Not Connected</small>
-  <div class="container">
+  <div class="container" id="play-area">
     <h1 id="word-display">TWITCH PLAYS HANGMAN</h1>
   </div>
   <div class="controls">
     <div id="word-set-control">
-      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+      <div class="container" style="margin-bottom: 8px;">
         <INPUT TYPE=PASSWORD NAME="WordInput" id="word-input">
         <INPUT TYPE=BUTTON VALUE="Show" onClick="toggleVis();" id="toggleVisBttn" class="button" style="width: 25%; background: #14397e;">
       </div>
-      <div style="display: flex; justify-content: space-between">
-        <INPUT TYPE=BUTTON VALUE="Set Word" onClick="setWord();" id="setButton" class="button" style="width: 58%;">
-        <INPUT TYPE=BUTTON VALUE="Random" id="randomButton" class="button" style="width: 40%;">
+      <div class="container" style="justify-content: space-between;">
+        <INPUT TYPE=BUTTON VALUE="Set Word" onClick="setWord();" id="setButton" class="button" style="width: 50%;">
+        <div class="container">
+          <div class="random-button" onclick="setRandomWord()">
+            <h4>Random</h4>
+            <h4 id="random-quantity">5</h4>
+          </div>
+          <div id="random-adj-container">
+            <h4 class="random-adj" onclick="changeRandomValue(1)" style="border-bottom-style: dotted; border-bottom-width: 1px;">+</h4>
+            <h4 class="random-adj" onclick="changeRandomValue(-1)" style="border-top-style: dotted; border-top-width: 1px;">-</h4>
+          </div>
+        </div>
       </div>
     </div>
     <h2> !guess [LETTER]</h2>
