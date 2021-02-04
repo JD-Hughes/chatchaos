@@ -22,7 +22,7 @@ const client = new tmi.Client({
 
 function importRandomWords(quantity) {
     randomWords = [];
-    fetch('wordlists/words.json').then(r => r.text()).then(data => {
+    fetch('assets/words.json').then(r => r.text()).then(data => {
         const jsonFile = JSON.parse(data);
         for (let wordLength = 0; wordLength <= 15; wordLength++) {
             randomWords.push([]);
@@ -59,7 +59,9 @@ function setRandomWord() {
         }
         if (randomWords[amountInt].length === 0) {
             alert("Please refresh the page to load more random words");
-        } else console.log(randomWords[amountInt].pop());
+        } else {
+            setWord(randomWords[amountInt].pop());
+        }
     } catch (error) {
         console.log(error);
         randomLetterCount.innerText = 5;
@@ -94,6 +96,7 @@ function setWord(word) {
         if (validChars.test(word.toUpperCase())) {
             foundChars = [];
             hiddenWord = word.toUpperCase();
+            console.log(`Word Set: ${hiddenWord}`);
             wordDisplay.style.color = "#ffffff";
             displayWord();
         } else alert("Word can only contain letters");
