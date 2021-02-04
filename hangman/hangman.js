@@ -10,6 +10,7 @@ const channel = params.get('channel') || 'JH_Code';
 
 var hiddenWord = '';
 var foundChars = [];
+var randomWords = [];
 
 const client = new tmi.Client({
     connection: {
@@ -19,12 +20,50 @@ const client = new tmi.Client({
     channels: [channel],
 });
 
+function importRandomWords(quantity) {
+    randomWords = [];
+    fetch('wordlists/words.json').then(r => r.text()).then(data => {
+        const jsonFile = JSON.parse(data);
+        for (let wordLength = 0; wordLength <= 10; wordLength++) {
+            randomWords.push([]);
+            if (jsonFile[`length_${wordLength}`]){
+                var words = jsonFile[`length_${wordLength}`];
+                for (let i = 0; i < quantity; i++) {
+                    var randLineNum = Math.floor(Math.random() * words.length);
+                    randomWords[wordLength].push(words[randLineNum]);
+                }
+            }
+        }
+    });
+}
+
 function changeRandomValue(amount) {
-    randomLetterCount.innerText = parseInt(randomLetterCount.innerText) + amount;
+    try {
+        var amountInt = parseInt(randomLetterCount.innerText) + amount;
+        if ((amountInt <= 10) && (amountInt >= 5)) {
+            randomLetterCount.innerText = amountInt;
+        }
+
+    } catch (error) {
+        console.log(error);
+        randomLetterCount.innerText = 5;
+    }
 }
 
 function setRandomWord() {
-    alert(`Setting random word of length: ${parseInt(randomLetterCount.innerText)}`);
+    try {
+        var amountInt = parseInt(randomLetterCount.innerText);
+        if (!((amountInt <= 10) && (amountInt >= 5))) {
+            randomLetterCount.innerText = 5;
+            amountInt = 5;
+        }
+        if (randomWords[amountInt].length === 0) {
+            alert("Please refresh the page to load more random words");
+        } else console.log(randomWords[amountInt].pop());
+    } catch (error) {
+        console.log(error);
+        randomLetterCount.innerText = 5;
+    }
 }
 
 function displayWord() {
@@ -86,7 +125,7 @@ client.on('message', (channel, tags, message, self) => {
     if (command === 'guess' && args.length === 1) {
         console.log(`Guess made (${tags.username}): ${args[0]}`);
         guessLetter(args[0]);
-    } //else if (command === 'hello') {
-    // } else if (command === 'dice') {
-    // }
+    }
 });
+
+importRandomWords(20);
