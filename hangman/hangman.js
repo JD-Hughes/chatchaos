@@ -24,7 +24,7 @@ function importRandomWords(quantity) {
     randomWords = [];
     fetch('wordlists/words.json').then(r => r.text()).then(data => {
         const jsonFile = JSON.parse(data);
-        for (let wordLength = 0; wordLength <= 10; wordLength++) {
+        for (let wordLength = 0; wordLength <= 15; wordLength++) {
             randomWords.push([]);
             if (jsonFile[`length_${wordLength}`]){
                 var words = jsonFile[`length_${wordLength}`];
@@ -40,7 +40,7 @@ function importRandomWords(quantity) {
 function changeRandomValue(amount) {
     try {
         var amountInt = parseInt(randomLetterCount.innerText) + amount;
-        if ((amountInt <= 10) && (amountInt >= 5)) {
+        if ((amountInt <= 15) && (amountInt >= 4)) {
             randomLetterCount.innerText = amountInt;
         }
 
@@ -53,7 +53,7 @@ function changeRandomValue(amount) {
 function setRandomWord() {
     try {
         var amountInt = parseInt(randomLetterCount.innerText);
-        if (!((amountInt <= 10) && (amountInt >= 5))) {
+        if (!((amountInt <= 15) && (amountInt >= 4))) {
             randomLetterCount.innerText = 5;
             amountInt = 5;
         }
