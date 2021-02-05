@@ -11,13 +11,15 @@
 <body>
   <small id="status">Not Connected</small>
   <div class="container" id="play-area">
+    <img id="hangmanImages" src="assets/0.png" alt="HANGMAN" style="width: 20%; margin: 10px; display: none;">
     <h1 id="word-display">TWITCH PLAYS HANGMAN</h1>
   </div>
   <div class="controls">
     <div id="word-set-control">
       <div class="container" style="margin-bottom: 8px;">
         <INPUT TYPE=PASSWORD NAME="WordInput" id="word-input">
-        <INPUT TYPE=BUTTON VALUE="Show" onClick="toggleVis();" id="toggleVisBttn" class="button" style="width: 25%; background: #14397e;">
+        <INPUT TYPE=BUTTON VALUE="Show" onClick="toggleVis();" id="toggleVisBttn" class="button"
+          style="width: 25%; background: #14397e;">
       </div>
       <div class="container" style="justify-content: space-between;">
         <INPUT TYPE=BUTTON VALUE="Set Word" onClick="setWord();" id="setButton" class="button" style="width: 50%;">
@@ -27,11 +29,28 @@
             <h4 id="random-quantity">5</h4>
           </div>
           <div id="random-adj-container">
-            <h4 class="random-adj" onclick="changeRandomValue(1)" style="border-bottom-style: dotted; border-bottom-width: 1px;">+</h4>
-            <h4 class="random-adj" onclick="changeRandomValue(-1)" style="border-top-style: dotted; border-top-width: 1px;">-</h4>
+            <h4 class="random-adj" onclick="changeRandomValue(1)"
+              style="border-bottom-style: dotted; border-bottom-width: 1px;">+</h4>
+            <h4 class="random-adj" onclick="changeRandomValue(-1)"
+              style="border-top-style: dotted; border-top-width: 1px;">-</h4>
           </div>
         </div>
       </div>
+    </div>
+    <div class="options">
+      <h3>Options</h3>
+      <label class="checkboxContainer">Auto random
+        <input id="autoRandomCheckbox" type="checkbox" onchange="toggleOptions()">
+        <span class="checkmark"></span>
+      </label>
+      <label class="checkboxContainer">Show Hangman
+        <input id="showHangmanCheckbox" type="checkbox" onchange="toggleOptions()">
+        <span class="checkmark"></span>
+      </label>
+      <label class="checkboxContainer">Show Leaderboard
+        <input id="showLeaderboardCheckbox" type="checkbox" onchange="toggleOptions()">
+        <span class="checkmark"></span>
+      </label>
     </div>
     <h2> !guess [LETTER]</h2>
   </div>

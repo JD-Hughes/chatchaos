@@ -3,6 +3,10 @@ const statusElement = document.getElementById("status");
 const toggleVisButton = document.getElementById("toggleVisBttn");
 const wordInput = document.getElementById("word-input");
 const randomLetterCount = document.getElementById("random-quantity");
+const hangmanImage = document.getElementById("hangmanImages");
+const showHangmanOption = document.getElementById("showHangmanCheckbox");
+const showLeaderboardOption = document.getElementById("showLeaderboardCheckbox");
+const autoRandomOption = document.getElementById("autoRandomCheckbox");
 const validChars = /^[A-Z]+$/;
 
 const params = new URLSearchParams(window.location.search);
@@ -11,6 +15,7 @@ const channel = params.get('channel') || 'JH_Code';
 var hiddenWord = '';
 var foundChars = [];
 var randomWords = [];
+var strikes = 0;
 
 const client = new tmi.Client({
     connection: {
@@ -50,9 +55,9 @@ function changeRandomValue(amount) {
     }
 }
 
-function setRandomWord() {
+function setRandomWord(count) {
     try {
-        var amountInt = parseInt(randomLetterCount.innerText);
+        var amountInt = count || parseInt(randomLetterCount.innerText);
         if (!((amountInt <= 15) && (amountInt >= 4))) {
             randomLetterCount.innerText = 5;
             amountInt = 5;
@@ -68,7 +73,7 @@ function setRandomWord() {
     }
 }
 
-function displayWord() {
+function updateDisplay() {
     var obscuredWord = '';
     for (let i = 0; i < hiddenWord.length; i++) {
         if (foundChars.includes(hiddenWord[i])) {
@@ -80,13 +85,21 @@ function displayWord() {
     if (!obscuredWord.includes("_")) {
         wordDisplay.innerText = hiddenWord;
         wordDisplay.style.color = "#2ecc71";
+        if (autoRandomOption.checked) {
+            setTimeout(() => setRandomWord(Math.floor(Math.random()*5)+5),1000);
+        }
+    }
+
+    if (strikes <= 10) {
+        hangmanImage.src=`assets/${strikes}.png`;
     }
 }
 
 function guessLetter(letter) {
     if ((!foundChars.includes(letter.toUpperCase()) && (letter.length === 1) && (validChars.test(letter.toUpperCase())))) {
         foundChars.push(letter.toUpperCase());
-        displayWord();
+        if (!hiddenWord.includes(letter.toUpperCase())) strikes++;
+        updateDisplay();
     }
 }
 
@@ -96,9 +109,10 @@ function setWord(word) {
         if (validChars.test(word.toUpperCase())) {
             foundChars = [];
             hiddenWord = word.toUpperCase();
+            strikes = 0;
             console.log(`Word Set: ${hiddenWord}`);
             wordDisplay.style.color = "#ffffff";
-            displayWord();
+            updateDisplay();
         } else alert("Word can only contain letters");
     } else alert("Word length must be between 3 and 15 characters (Yes there is a limit)");
 }
@@ -131,4 +145,14 @@ client.on('message', (channel, tags, message, self) => {
     }
 });
 
+
+function toggleOptions() {
+    if (showHangmanOption.checked){
+        hangmanImage.style.display = "block";
+    } else hangmanImage.style.display = "none";
+
+    if (autoRandomOption.checked && (wordDisplay.innerText === "TWITCH PLAYS HANGMAN")) setRandomWord(5);
+}
+
+toggleOptions();
 importRandomWords(20);
