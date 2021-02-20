@@ -55,7 +55,6 @@ let totalCount = 0;
 
 client.on('message', (wat, tags, message, self) => {
   if (self) return;
-  const { username } = tags;
   if (tags.badges) {
     if (tags.badges.moderator) mods[tags.username] = true;
     else if (tags.badges.vip) vips[tags.username] = true;
