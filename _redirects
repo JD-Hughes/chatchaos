@@ -1,4 +1,4 @@
-http://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200
-https://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200
-http://backup2.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200!
-https://backup2.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200!
+http://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301!
+https://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301!
+http://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
+https://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
