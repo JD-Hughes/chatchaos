@@ -1,2 +1,4 @@
-http://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301
-https://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301
+http://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200
+https://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 200
+http://backup2.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301!
+https://backup2.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301!
