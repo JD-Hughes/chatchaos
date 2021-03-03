@@ -4,3 +4,4 @@ https://backup.chatchaos.tv/* https://chatchaos.surge.sh/:splat 301!
 https://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
 
 /status https://www.netlifystatus.com/ 301!
+/quiz https://vgm.surge.sh/ 301!
