@@ -274,7 +274,8 @@ a.pure-button-primary {
     top: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    padding: 4px;
+    padding-bottom: 0px;
     border-bottom-left-radius: 6px;
     transition: 300ms;
     line-height: normal;
@@ -282,6 +283,7 @@ a.pure-button-primary {
 
 .contactcontainer:hover {
     background: rgba(0, 0, 0, 0.8);
+    padding-bottom: 10px;
 }
 
 
@@ -305,4 +307,8 @@ a.pure-button-primary {
     font-size: 0px;
     margin: 1px 7px;
     transition: 300ms;
+}
+
+.contact-icon {
+    margin-right: 4px;
 }
