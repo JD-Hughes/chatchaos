@@ -312,3 +312,24 @@ a.pure-button-primary {
 .contact-icon {
     margin-right: 4px;
 }
+
+.selectbox {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    color: #1c87c9;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    outline: none;
+    padding: 2px 5px 2px 5px;
+    text-align-last: center;
+}
+
+.inputbox {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    color: #1c87c9;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    outline: none;
+    padding: 2px 5px 2px 5px;
+}

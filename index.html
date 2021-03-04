@@ -8,18 +8,35 @@
     <meta name="author" content="Jamie Hughes" />
     <title>ChatChaos &ndash; Home</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/fc6ace873d.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BY7J38C9K8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-BY7J38C9K8');
+    </script>
 </head>
 
 <body>
     <div class="contactcontainer">
         <h2>Contact Me</h2>
-        <a class="contactdetails" href="https://twitch.tv/JH_Code" target="_blank"><i class="fab fa-twitch contact-icon"></i><b> JH_Code</b></a>
-        <a class="contactdetails" href="https://discordapp.com/users/185128076387155969" target="_blank"><i class="fab fa-discord contact-icon"></i><b> Kami</b> #7370</a>
-        <a class="contactdetails" href="https://github.com/JD-Hughes/" target="_blank"><i class="fab fa-github contact-icon"></i><b> JD-Hughes</b></a>
-        <a class="contactdetails" href="https://twitter.com/Jamie_Hughes42" target="_blank"><i class="fab fa-twitter contact-icon"></i><b> @Jamie_Hughes42</b></a>
+        <a class="contactdetails" href="https://twitch.tv/JH_Code" target="_blank"><i
+                class="fab fa-twitch contact-icon"></i><b> JH_Code</b></a>
+        <a class="contactdetails" href="https://discordapp.com/users/185128076387155969" target="_blank"><i
+                class="fab fa-discord contact-icon"></i><b> Kami</b> #7370</a>
+        <a class="contactdetails" href="https://github.com/JD-Hughes/" target="_blank"><i
+                class="fab fa-github contact-icon"></i><b> JD-Hughes</b></a>
+        <a class="contactdetails" href="https://twitter.com/Jamie_Hughes42" target="_blank"><i
+                class="fab fa-twitter contact-icon"></i><b> @Jamie_Hughes42</b></a>
     </div>
     <div class="splash-container">
         <h1 class="splash-head">ChatChaos.tv</h1>
@@ -70,7 +87,7 @@
                     View your currently active chat members
                 </p>
                 <label">Background Color:</label>
-                    <select name="Background Color Picker" id="active-chat-bg-color">
+                    <select name="Background Color Picker" id="active-chat-bg-color" class="selectbox">
                         <option value="white">White</option>
                         <option value="black">Black</option>
                         <option value="grey">Grey</option>
@@ -84,12 +101,14 @@
                     <button class="launch-button" onclick="goToPage('html-background')">LAUNCH</button>
                 </h3>
                 <p>
-                    Fully HTML custom backgrounds for OBS and other streaming software. Scales effortlessly to any size, no more low resolution videos!
+                    Fully HTML custom backgrounds for OBS and other streaming software. Scales effortlessly to any size,
+                    no more low resolution videos!
                     <br>
-                    After generating your background just copy and paste the URL into a browser source object to integrate into your stream!
+                    After generating your background just copy and paste the URL into a browser source object to
+                    integrate into your stream!
                 </p>
                 <label">Background Type:</label>
-                    <select name="Background Type" id="html-bg-type">
+                    <select name="Background Type" id="html-bg-type" class="selectbox">
                         <option value="gradient">Rainbow Gradient</option>
                         <option value="stars">Stars</option>
                         <option value="diagonal">Diagonal Shift</option>
@@ -98,7 +117,8 @@
                     </select>
                     <br>
                     <label">Custom Text (blank for none): </label>
-                    <input type="text" name="Custom Text" id="html-bg-custom-text" value="Be Right Back 😃" maxlength="15">
+                        <input type="text" name="Custom Text" class="inputbox" id="html-bg-custom-text"
+                            value="Be Right Back 😃" maxlength="15">
             </div>
         </div>
 

@@ -107,7 +107,7 @@ function fetchJSON() {
         revealButton.setAttribute("onclick", "revealAnswers()");
         document.getElementById("main").appendChild(revealButton);
         var ideasText = document.createElement("h2");
-        ideasText.innerHTML = "Got any ideas/improvements? <br> <a href='#' style='color: grey;'><b>CONTACT ME</b></a>";
+        ideasText.innerHTML = "Got any ideas/improvements? <br> <a href='/#' style='color: grey;'><b>CONTACT ME</b></a>";
         ideasText.style.fontSize = "20px";
         document.getElementById("main").appendChild(ideasText);
     });
