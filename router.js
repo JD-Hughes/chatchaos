@@ -1,12 +1,17 @@
 function goToPage(destination) {
     var channelName = document.getElementById("channel-name").value;
+    const nameExeptions = ["html-background","vgm"]
 
-    if (channelName === "" && !(destination === "html-background")) {
+    if (channelName === "" && !(nameExeptions.includes(destination))) {
         alert("Pleas enter a channel name");
     } else {
         switch (destination) {
             case "hangman":
                 window.location.href = `hangman/?channel=${channelName}`;
+                break;
+
+            case "vgm":
+                window.location.href = `https://vgm.surge.sh`;
                 break;
 
             case "active-chat":

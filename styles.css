@@ -264,3 +264,45 @@ a.pure-button-primary {
     bottom: 0;
     width: 100%;
 }
+
+.contactcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-bottom-left-radius: 6px;
+    transition: 300ms;
+    line-height: normal;
+}
+
+.contactcontainer:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.contactcontainer h2{
+    margin: 0 10px;
+    color: darkmagenta;
+}
+
+.contactcontainer:hover a{
+    font-size: 20px;
+}
+
+.contactcontainer:hover h2{
+    font-size: 40px;
+    transition: 300ms;
+}
+
+.contactdetails {
+    text-decoration: none;
+    color: grey;
+    font-size: 0px;
+    margin: 1px 7px;
+    transition: 300ms;
+}

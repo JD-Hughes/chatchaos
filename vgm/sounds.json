@@ -1,0 +1,126 @@
+{
+    "levels":[
+        {
+            "difficulty":"Retro",
+            "contents":[
+                {"title":"Super Mario Bros.", "src":"mario.mp3", "alt":["Mario"]},
+                {"title":"Tetris", "src":"tetris.mp3"},
+                {"title":"Super Smash Bros. Melee", "src":"smash.mp3", "alt":["Super Smash Bros","Super Smash Brothers","Smash Bros","Smash"]},
+                {"title":"Mortal Kombat", "src":"mk.mp3"},
+                {"title":"Sonic", "src":"sonic.mp3", "alt":["Sonic the hedgehog"]},
+                {"title":"Street Fighter II", "src":"streetfighter.mp3", "alt":["Street Fighter", "Street Fighter 2"]},
+                {"title":"Doom", "src":"doom.mp3"},
+                {"title":"Duck Tales", "src":"ducktales.mp3"},
+                {"title":"Pokémon", "src":"pokemon.mp3", "alt":["Pokemon","Pokemon Red","Pokemon Blue","Pokemon Red & Blue","Pokemon Red and Blue"]}
+            ]
+        },
+        {
+            "difficulty":"Easy",
+            "contents":[
+                {"title":"Minecraft", "src":"minecraft.mp3"},
+                {"title":"Halo 3", "src":"halo.mp3", "alt":["Halo"]},
+                {"title":"Plants vs. Zombies", "src":"pvz.mp3", "alt":["Plants v Zombies","Plants vs Zombies","Plants versus Zombies","pvz"]},
+                {"title":"Undertale", "src":"undertale.mp3"},
+                {"title":"The Legend of Zelda: Breath of the Wild", "src":"zelda.mp3", "alt":["Breath of the Wild", "The Legend of Zelda", "Zelda"]},
+                {"title":"Persona 5", "src":"persona.mp3"},
+                {"title":"Overwatch", "src":"overwatch.mp3"},
+                {"title":"GTA: San Andreas", "src":"gtasa.mp3", "alt":["GTA San Andreas", "Grand Theft Auto: San Andreas"]},
+                {"title":"CS:GO", "src":"csgo.mp3", "alt":["CS", "Counter Strike", "CSGO", "CS GO", "Counter Strike Global Offensive"]},
+                {"title":"Stardew Valley", "src":"stardew.mp3"},
+                {"title":"Skyrim", "src":"skyrim.mp3", "alt":["Elder Scrolls V", "Elder Scrolls 5", "The Elder Scrolls V: Skyrim", "The Elder Scrolls V Skyrim"]},
+                {"title":"Mario Kart 8", "src":"mariokart.mp3", "alt":["Mario kart"]},
+                {"title":"Team Fortress 2", "src":"fortress.mp3", "alt":["TF2"]},
+                {"title":"Papers Please", "src":"papers.mp3"},
+                {"title":"Angry Birds", "src":"angrybirds.mp3"},
+                {"title":"Fortnite", "src":"fortnite.mp3"},
+                {"title":"Wii Sports", "src":"wiisports.mp3"},
+                {"title":"Kingdom Hearts", "src":"kingdomhearts.mp3"},
+                {"title":"Hearthstone", "src":"hearthstone.mp3"},
+                {"title":"Terraria", "src":"terraria.mp3"},
+                {"title":"Golf With Your Friends", "src":"golf.mp3", "alt":["GWYF"]},
+                {"title":"Animal Crossing: New Horizons", "src":"animalcrossing.mp3", "alt":["Animal Crossing"]},
+                {"title":"GTA: V", "src":"gtav.mp3", "alt":["Grand Theft Auto V", "Grand Theft Auto: V", "GTA V", "GTAV"]},
+                {"title":"Final Fantasy VII", "src":"ff7.mp3", "alt":["Final Fantasy 7","Final Fantasy"]}
+            ]
+        },
+        {
+            "difficulty":"Medium",
+            "contents":[
+                {"title":"The Last Of Us", "src":"thelastofus.mp3", "alt":["Last Of Us", "Last Of Us 2", "The Last Of Us 2"]},
+                {"title":"Worms Armageddon", "src":"worms.mp3", "alt":["worms"]},
+                {"title":"Hotline Miami 2", "src":"hotline.mp3", "alt":["Hotline Miami 2: Wrong Number"]},
+                {"title":"Kerbal Space Program", "src":"ksp.mp3", "alt":["KSP"]},
+                {"title":"Cuphead", "src":"cuphead.mp3"},
+                {"title":"Dead By Daylight", "src":"dbd.mp3", "alt":["DBD"]},
+                {"title":"Valorant", "src":"valorant.mp3"},
+                {"title":"Sea Of Thieves", "src":"seaofthieves.mp3"},
+                {"title":"Tabletop Simulator", "src":"tabletop.mp3", "alt":["Tabletop", "Table Top Simulator"]},
+                {"title":"SpeedRunners", "src":"speedrunners.mp3", "alt":["Speed Runners"]},
+                {"title":"Modern Warfare 2", "src":"mw2.mp3", "alt":["Modern Warfare", "MW2", "Call of Duty Modern Warfare 2", "Call of Duty: Modern Warfare 2", "Call of Duty MW2", "COD MW2"]},
+                {"title":"Spider Man 2", "src":"spiderman2.mp3", "alt":["Spiderman", "Spiderman 2"]},
+                {"title":"Apex Legends", "src":"apex.mp3"},
+                {"title":"Clash Of Clans", "src":"coc.mp3"},
+                {"title":"Kirby Super Star", "src":"kirby.mp3", "alt":["Kirby"]},
+                {"title":"Diablo 2", "src":"diablo.mp3"},
+                {"title":"Payday 2", "src":"payday.mp3", "alt":["Payday"]},
+                {"title":"Portal 2", "src":"portal2.mp3"}
+            ]
+        },
+        {
+            "difficulty":"Hard",
+            "contents":[
+                {"title":"Rainbow 6: Siege", "src":"r6.mp3", "alt":["Rainbow 6", "Rainbow 6 Siege"]},
+                {"title":"Fruit Ninja", "src":"fruit.mp3"},
+                {"title":"Fallout 3", "src":"fallout.mp3"},
+                {"title":"Batman: Arkham City", "src":"batman.mp3", "alt":["Batman Arkham City", "Arkham City", "Batman"]},
+                {"title":"Yakuza 0", "src":"yakuza.mp3", "alt":["Yakuza"]},
+                {"title":"Mirror's Edge 2", "src":"mirror2.mp3", "alt":["Mirror's Edge","Mirrors Edge","Mirrors Edge 2"]},
+                {"title":"Need for Speed: Hot Pursuit", "src":"nfshp.mp3", "alt":["Need for speed", "Hot persuit"]},
+                {"title":"World's Hardest Game", "src":"worldshardestgame.mp3", "alt":["Worlds Hardest Game", "Hardest Game Ever", "The worlds hardest game", "The world's hardest game"]},
+                {"title":"Crysis 3", "src":"crysis.mp3"},
+                {"title":"Dying Light", "src":"dyinglight.mp3"},
+                {"title":"Devil May Cry 5", "src":"deviltrigger.mp3", "alt":["Devil May Cry", "DMC5", "Devil Trigger", "Devil May Cry 5: Devil Trigger"]},
+                {"title":"Dark Souls", "src":"darksouls3.mp3", "alt":["Dark Souls 2", "Dark Souls 3", "Dark Souls II", "Dark Souls III"]},
+                {"title":"Cities: Skylines", "src":"cities.mp3", "alt":["Cities Skylines", "City Skylines", "Cities - Skylines"]},
+                {"title":"Gang Beasts", "src":"gangbeasts.mp3"},
+                {"title":"Risk Of Rain 2", "src":"riskofrain.mp3", "alt":["Risk Of Rain"]},
+                {"title":"Left 4 Dead", "src":"l4d.mp3", "alt":["L4D", "Left For Dead", "Left For Dead 2", "Left 4 Dead 2", "L4D2"]}
+            ]
+        },
+        {
+            "difficulty":"Obscure",
+            "contents":[
+                {"title":"Viscera Cleanup Detail", "src":"vcd.mp3", "alt":["Viscera Cleanup"]},
+                {"title":"Keep Talking And Nobody Explodes", "src":"ktane.mp3", "alt":["KTANE"]},
+                {"title":"The Binding of Isaac", "src":"isaac.mp3", "alt":["Binding of Isaac"]},
+                {"title":"Geometry Dash", "src":"geometrydash.mp3"},
+                {"title":"Super Hexagon", "src":"superhex.mp3"},
+                {"title":"The Simpsons Hit & Run", "src":"simpsons.mp3", "alt":["The Simpsons", "Hit and run", "The Simpsons Hit and Run", "Hit & Run", "Simpsons Hit & Run", "Simpsons Hit and Run", "Simpsons"]},
+                {"title":"Fibbage", "src":"fibbage.mp3", "alt":["Fibbage XL", "Fibbage 2", "Fibbage 3"]},
+                {"title":"Far Cry 5", "src":"fc5.mp3", "alt":["Far Cry"]},
+                {"title":"Little Big Planet", "src":"littlebig.mp3"}
+            ]
+        },
+        {
+            "difficulty":"**NEW (unranked)**",
+            "contents":[
+                {"title":"Bioshock", "src":"bioshock.mp3"},
+                {"title":"Celeste", "src":"celeste.mp3"},
+                {"title":"Dead Space 2", "src":"deadspace.mp3", "alt":["Dead Space", "Deadspace2", "Deadspace"]},
+                {"title":"Overlord 2", "src":"overlord2.mp3", "alt":["Overlord"]},
+                {"title":"Metroid Prime", "src":"metroidprime.mp3", "alt":["Metroid Prime 2", "Metroid"]}
+            ]
+        },
+        {
+            "difficulty":"The Zionos Special",
+            "contents":[
+                {"title":"Hades", "src":"z-hades.mp3"},
+                {"title":"Metal Gear Rising", "src":"z-mgr.mp3"},
+                {"title":"Goblin Slayer", "src":"z-goblinslayer.mp3"},
+                {"title":"Sekiro", "src":"z-sekiro.mp3"},
+                {"title":"Mother 3", "src":"z-mother3.mp3"}
+
+            ]
+        }
+    ]
+}
