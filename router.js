@@ -11,7 +11,7 @@ function goToPage(destination) {
                 break;
 
             case "vgm":
-                window.location.href = `https://vgm.surge.sh`;
+                window.location.href = `quiz`;
                 break;
 
             case "active-chat":
