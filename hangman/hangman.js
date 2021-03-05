@@ -8,6 +8,7 @@ const showHangmanOption = document.getElementById("showHangmanCheckbox");
 const showLeaderboardOption = document.getElementById("showLeaderboardCheckbox");
 const autoRandomOption = document.getElementById("autoRandomCheckbox");
 const validChars = /^[A-Z]+$/;
+const HACKERMANS = "https://cdn.betterttv.net/emote/5b490e73cf46791f8491f6f4/3x" //YOU ARE HACKERMANS
 
 const params = new URLSearchParams(window.location.search);
 const channel = params.get('channel') || 'JH_Code';
