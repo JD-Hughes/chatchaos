@@ -273,7 +273,7 @@ a.pure-button-primary {
     position: absolute;
     top: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.2);
     padding: 4px;
     padding-bottom: 0px;
     border-bottom-left-radius: 6px;
@@ -289,7 +289,7 @@ a.pure-button-primary {
 
 .contactcontainer h2{
     margin: 0 10px;
-    color: darkmagenta;
+    color: #830062;
 }
 
 .contactcontainer:hover a{
