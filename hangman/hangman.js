@@ -10,6 +10,7 @@ const leaderboardP = document.getElementById("leaderboard-scores");
 const showLeaderboardOption = document.getElementById("showLeaderboardCheckbox");
 const autoRandomOption = document.getElementById("autoRandomCheckbox");
 const optionsDiv = document.getElementById("optionsDiv");
+const wrongLetters = document.getElementById("wrong-letters-display");
 
 const params = new URLSearchParams(window.location.search);
 const channel = params.get("channel") || "JH_Code";
@@ -88,12 +89,21 @@ function setRandomWord(wordLength) {
 
 function updateDisplay() {
   var obscuredWord = "";
+  var wrongLettersHTML = "";
   for (let i = 0; i < hiddenWord.length; i++) {
     if (lettersGuessed.includes(hiddenWord[i])) {
       obscuredWord = obscuredWord.concat(hiddenWord[i]);
     } else obscuredWord = obscuredWord.concat("_");
     if (i < hiddenWord.length - 1) obscuredWord = obscuredWord.concat(" ");
   }
+
+  for (let i = 0; i < lettersGuessed.length; i++) {
+    if (!hiddenWord.includes(lettersGuessed[i])) {
+      wrongLettersHTML = wrongLettersHTML.concat(`<s>${lettersGuessed[i]}</s> `);
+    }
+  }
+  wrongLetters.innerHTML = wrongLettersHTML;
+
   wordDisplay.innerText = obscuredWord;
   if (!obscuredWord.includes("_")) {
     wordDisplay.innerText = hiddenWord;
