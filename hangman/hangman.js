@@ -113,6 +113,7 @@ function updateLeaderboard(username) {
   var pText = "";
   for (let i = 0; i < leaderboardScores.length; i++) {
     const element = leaderboardScores[i];
+    console.log("Adding to leaderboard");
     if (element[0] === username) {
       element[1]++;
       updated = true;
@@ -122,7 +123,7 @@ function updateLeaderboard(username) {
   leaderboardScores = leaderboardScores.sort(function (a, b) {
     return b[1] - a[1];
   });
-  for (let i = 0; i < leaderboardScores.length; i++) {
+  for (let i = 0; i < Math.min(leaderboardScores.length, 5); i++) {
     pText =
       pText +
       `<b>${leaderboardScores[i][1]}</b> - ${leaderboardScores[i][0]} <br>`;
