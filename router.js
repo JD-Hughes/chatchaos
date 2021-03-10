@@ -1,5 +1,5 @@
 function goToPage(destination) {
-    var channelName = document.getElementById("channel-name").value;
+    var channelName = document.getElementById("channel-name").value.toUpperCase();
     const nameExeptions = ["html-background","vgm"]
 
     if (channelName === "" && !(nameExeptions.includes(destination))) {
@@ -7,7 +7,7 @@ function goToPage(destination) {
     } else {
         switch (destination) {
             case "hangman":
-                window.location.href = `hangman/?channel=${channelName}`;
+                window.location.href = `hangman/?channel=${channelName}&overlay=${document.getElementById("hangman-overlay-mode").checked}`;
                 break;
 
             case "vgm":
