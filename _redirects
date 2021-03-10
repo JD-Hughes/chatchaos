@@ -1,5 +1,10 @@
 http://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
 https://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
 
+http://backup.chatchaos.tv/* https://jd-hughes.github.io/chatchaos/:splat 301!
+https://backup.chatchaos.tv/* https://jd-hughes.github.io/chatchaos/:splat 301!
+
+https://backup2.chatchaos.tv/* https://jd-hughes.github.io/chatchaos/:splat 301!
+
 /status https://www.netlifystatus.com/ 301!
 /quiz/backup https://vgm.surge.sh/ 301!
