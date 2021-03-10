@@ -3,7 +3,7 @@ body {
   font-size: 1.2em;
   margin: 0;
   line-height: 1.65em;
-  background: #B20940;
+  background: #B20940 !important;
   color: #fff;
   font-weight: 300;
 }
