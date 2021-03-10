@@ -21,10 +21,16 @@
 <body>
   <small id="status">Not Connected</small>
   <div class="container" id="play-area">
-    <img id="hangmanImages" src="assets/0.png" alt="HANGMAN" style="width: 20%; margin: 10px; display: none;">
+    <div id="optionsDiv">
+      <img id="hangmanImages" src="assets/0.png" alt="HANGMAN" style="width: 90%; margin: 5px; display: none;">
+      <div id="leaderboard">
+        <h2>Leaderboard:</h2>
+        <p id = leaderboard-scores>Nobody Here ¯\_(ツ)_/¯</p>
+      </div>
+    </div>
     <h1 id="word-display">TWITCH PLAYS HANGMAN</h1>
   </div>
-  <div class="controls">
+  <div class="controls" id="control-bar">
     <div id="word-set-control">
       <div class="container" style="margin-bottom: 8px;">
         <INPUT TYPE=PASSWORD NAME="WordInput" id="word-input">
@@ -47,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="options">
+    <div class="options" id="options-control">
       <h3>Options</h3>
       <label class="checkboxContainer">Auto random
         <input id="autoRandomCheckbox" type="checkbox" onchange="toggleOptions()">
@@ -62,7 +68,7 @@
         <span class="checkmark"></span>
       </label>
     </div>
-    <h2> !guess [LETTER]</h2>
+    <h2 id="instructions">!guess [LETTER]</h2>
   </div>
   <script src="../tmi.min.js"></script>
   <script src="hangman.js"></script>

@@ -20,6 +20,7 @@ h4 {
 }
 .container {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -109,7 +110,7 @@ h4 {
   position:absolute;
   font-family: sans-serif;
   top: 0;
-  left: 0;
+  right: 0;
   margin: 10px;
   padding: 0 8px;
   border-radius: 5px;
@@ -135,6 +136,10 @@ h4 {
 
 #word-display {
   line-height: 1.2em;
+}
+
+#instructions {
+  margin: 10px;
 }
 
 
@@ -213,4 +218,27 @@ h4 {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+#optionsDiv {
+  display: flex; 
+  flex-direction: column; 
+  width: 20%;
+  align-items: center;
+}
+
+#leaderboard {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 25px;
+  border-radius: 5px;
+}
+
+#leaderboard h2{
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+#leaderboard p {
+  font-size: 1vw;
+  line-height: 1.6em;
 }
