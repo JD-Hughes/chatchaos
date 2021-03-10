@@ -2,5 +2,5 @@
   from = "https://backup.chatchaos.tv/*"
   to = "https://jd-hughes.github.io/chatchaos/:splat"
   status = 200
-  force = true # COMMENT: ensure that we always redirect
+  force = true
   headers = {X-From = "Netlify"}
