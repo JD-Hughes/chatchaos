@@ -1,0 +1,13 @@
+{
+    "changelog" : [
+        {
+            "version" : "0.0.1",
+            "title" : "This is an example title",
+            "description" : "This is my example descrition",
+            "added" : ["Things I added"],
+            "updated" : ["Things I updated"],
+            "removed" : ["Things I removed"],
+            "notes" : "Closing notes & extra bits"
+        }
+    ]
+}

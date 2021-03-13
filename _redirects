@@ -3,5 +3,5 @@ https://status.chatchaos.tv/* https://www.netlifystatus.com/ 301!
 
 /status https://www.netlifystatus.com/ 301!
 
-
-/quiz/backup https://vgm.surge.sh/ 301!
+/changelog /admin/changelog 301!
+/quiz/backup/ https://vgm.surge.sh/ 301!
