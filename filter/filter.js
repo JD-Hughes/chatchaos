@@ -10,7 +10,7 @@ const bannedWords = [];
 const ignoreEmoteOnly = true;
 const ignoreCommands = true;
 const subsOnly = false;
-const arrayLength = 35;
+const arrayLength = 28;
 const maxMessageLength = 0;
 
 var chatMessages = [];
@@ -28,11 +28,20 @@ const client = new tmi.Client({
 
 client.connect().then(() => {
     statusElement.textContent = `Connected to: ${channel}... `;
-    fetch(`https://api.betterttv.net/3/cached/emotes/global`)
+    fetch(`https://api.betterttv.net/3/cached/emotes/global`) // Global Emotes
             .then(response => response.json())
             .then(data => {
                 for (var i = 0; i < data.length; i++) {
+                    console.log(`ADDED GLOBAL EMOTE: ${data[i]["code"]}`)
                     bttvEmotes[data[i]["code"]] = data[i]["id"];
+                }
+    });
+    fetch(`https://api.betterttv.net/3/emotes/shared/top?offset=0&limit=50`) // Top Emotes
+            .then(response => response.json())
+            .then(data => {
+                for (var i = 0; i < data.length; i++) {
+                    console.log(`ADDED TOP EMOTE: ${data[i]['emote']["code"]}`)
+                    bttvEmotes[data[i]['emote']["code"]] = data[i]['emote']["id"];
                 }
     });
     fetch(`https://api.twitch.tv/kraken/users?login=${channel}`, { method: 'GET', headers: {'Accept': 'application/vnd.twitchtv.v5+json', 'Client-ID': 'ekj09tcx24qymrl1wl5c6er2qjkpryz'} })
@@ -40,14 +49,17 @@ client.connect().then(() => {
     .then(data => {
         if (data['users'].length === 1){
             var channelID = data['users'][0]["_id"]
+            console.log("Channel ID: ",channelID);
             fetch(`https://api.betterttv.net/3/cached/users/twitch/${channelID}`)
             .then(response => response.json())
             .then(data => {
                 if (Object.keys(data).length === 4){
                     for (var i = 0; i < data['sharedEmotes'].length; i++) {
+                        console.log(`ADDED SHARED EMOTE: ${data['sharedEmotes'][i]["code"]}`)
                         bttvEmotes[data['sharedEmotes'][i]["code"]] = data['sharedEmotes'][i]["id"];
                     };
                     for (var i = 0; i < data['channelEmotes'].length; i++) {
+                        console.log(`ADDED CHANNEL EMOTE: ${data['channelEmotes'][i]["code"]}`)
                         bttvEmotes[data['channelEmotes'][i]["code"]] = data['channelEmotes'][i]["id"];
                     }
                 } else console.log("BTTV Emotes are not enabled on this channel");
@@ -75,7 +87,7 @@ function addEmotes(message) {
     var messageArray = message.split(" ");
     for (let i = 0; i < messageArray.length; i++) {
         if (Object.keys(bttvEmotes).includes(messageArray[i])){
-            console.log("REPLACED EMOTE", messageArray[i], `<img src='https://cdn.betterttv.net/emote/${bttvEmotes[messageArray[i]]}/3x'>`);
+            // console.log("REPLACED EMOTE", messageArray[i], `<img src='https://cdn.betterttv.net/emote/${bttvEmotes[messageArray[i]]}/3x'>`);
             messageArray[i] = `<img src='https://cdn.betterttv.net/emote/${bttvEmotes[messageArray[i]]}/3x'>`;
         }
         formattedMessage = formattedMessage + messageArray[i] + " ";
@@ -83,13 +95,12 @@ function addEmotes(message) {
     return formattedMessage;
 }
 
-function printMessages(array) {
+function printMessages(msgArray, usrArray) {
     var outText = "";
-    for (var i = 0; i < array.length; i++) {
-        // var emoteMessage = addEmotes(array[i]);
-        if (Object.keys(repeatedMessages).includes(array[i])) {
-            outText += `${array[i]} <span class="multiplier">(x${repeatedMessages[array[i]]})</span><br> `;
-        } else outText += array[i] + " <br> ";
+    for (var i = 0; i < msgArray.length; i++) {
+        if (Object.keys(repeatedMessages).includes(msgArray[i])) {
+            outText += `<span class="multiMessage"> ${msgArray[i]} <span class="multiplier">(x${repeatedMessages[msgArray[i]]})</span></span><br> `;
+        } else outText += `<span class="username">${usrArray[i]}</span><span class="message">: ${msgArray[i]}</span> <br> `;
     }
     chatText.innerHTML = addEmotes(outText);
 };
@@ -115,6 +126,6 @@ client.on('message', (wat, tags, message, self) => {
             removeMessages(chatMessages.shift());
             chatUsers.shift();
         }
-        printMessages(chatMessages);
+        printMessages(chatMessages, chatUsers);
     };
 });

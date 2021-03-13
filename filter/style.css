@@ -1,14 +1,33 @@
 body {
     font-family: Inter,Roboto,"Helvetica Neue",sans-serif;
+    background: rgba(0, 0, 0, 0.89);
+    color: #d6d6d6;
+    line-height: 1.6em;
+    font-size: 18px;
+}
+
+.username {
+    color: #009196;
+    font-weight: bold;
+}
+
+.message {
+    font-weight: normal;
+}
+
+.multiMessage {
+    color: #9b9b9b;
+    font-size: 30px;
 }
 
 img {
-    height: 1.5em;
+    height: 1.4em;
     align-content: center;
     justify-content: center;
+    vertical-align: bottom;
 }
 
 .multiplier {
-    color: rgb(204, 0, 204);
+    color: #cc00cc;
     font-size: 0.8em;
 }
