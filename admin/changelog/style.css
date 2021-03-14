@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+body {
+    max-width: 900px;
+    background-color: #1c1c1d;
+    margin: auto;
+    font-family: 'Exo', sans-serif;
+}
+
+h1 {
+    font-weight: 700;
+    color: #A0A5A6;
+    text-align: center;
+    font-size: 55px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #A0A5A6;
+    text-align: center;
+    margin-bottom: 40px;
+}

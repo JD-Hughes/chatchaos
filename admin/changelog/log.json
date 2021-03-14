@@ -1,13 +1,28 @@
 {
     "changelog" : [
         {
-            "version" : "0.0.1",
+            "version" : "0.0.2",
+            "date" : "01-Jan-2021",
             "title" : "This is an example title",
             "description" : "This is my example descrition",
-            "added" : ["Things I added"],
-            "updated" : ["Things I updated"],
-            "removed" : ["Things I removed"],
+            "changes" : {
+                "added" : ["Things I added"],
+                "updated" : ["Things I updated"],
+                "removed" : ["Things I removed"]
+            },
             "notes" : "Closing notes & extra bits"
+        },
+        {
+            "version" : "0.0.1",
+            "date" : "14-Mar-2021",
+            "title" : "Changelog Created",
+            "description" : "The changelog is created",
+            "changes" : {
+                "added" : ["Changelog Page", "log.json"],
+                "updated" : ["_redirects file to include /changelog => /admin/changelog"],
+                "removed" : []
+            },
+            "notes" : "It took longer than expected"
         }
     ]
 }
