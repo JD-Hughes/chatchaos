@@ -1,7 +1,7 @@
 const displayArea = document.querySelector('.grid');
 const subText = document.querySelector('.sub-text');
 
-const validDays = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6'];
+const validDays = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'];
 
 function generateTable(tableID, headers, data) {
     const tableElement = document.createElement('table');
@@ -37,7 +37,7 @@ function collectOtherData(reportData) {
 function showData(day) {
     if (!validDays.includes(day)) {  // Validate requested day
         displayArea.innerHTML = "";
-        subText.innerHTML = `<span class='errorTXT'>This data does not exist</span>`;
+        subText.innerHTML = `<span class='errorTXT'>This data does not exist (yet)</span>`;
         return
     }
     subText.innerHTML = `Viewing data: <b>${day}</b><br><a href="reports/images/${day}.png" target="_blank">Infographic Link</a>`;
