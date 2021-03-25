@@ -1,14 +1,7 @@
-const displayArea = document.getElementById('display');
+const displayArea = document.querySelector('.grid');
+const subText = document.querySelector('.sub-text');
 
 const validDays = ['D1'];
-
-const testData = [
-    { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
-    { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
-    { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
-    { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
-    { name: "Monte Amiata", height: 1738, place: "Siena" }
-  ];
 
 function generateTable(tableID, headers, data) {
     const tableElement = document.createElement('table');
@@ -29,19 +22,33 @@ function generateTable(tableID, headers, data) {
             cell.appendChild(text);
         }
     }
-    displayArea.appendChild(tableElement);
+    const gridItem = document.createElement('div');
+    gridItem.className = 'grid-item';
+    gridItem.appendChild(tableElement);
+    displayArea.appendChild(gridItem);
+}
+
+function collectOtherData(reportData) {
+    const uniqueUsers = ['Total Unique Users:',reportData['totalUniqueUsers']];
+    const validMessages = ['Total Messages: ',reportData['totalValidMessages']];
+    return [validMessages,uniqueUsers]
 }
 
 function showData(day) {
-    if (!validDays.includes(day)) return // Validate requested day
+    if (!validDays.includes(day)) {  // Validate requested day
+        displayArea.innerHTML = "";
+        subText.innerHTML = `<span class='errorTXT'>This data does not exist</span>`;
+        return
+    }
+    subText.innerHTML = `Viewing data: <b>${day}</b><br><a href="reports/images/${day}.png" target="_blank">Infographic</a>`;
     fetch(`reports/report-${day}.json`).then(r => r.text()).then(data => { // Request and parse json data for selected time period
         const reportData = JSON.parse(data);
         displayArea.innerText = null; // Clear the current display area
-        console.log(reportData); //DEBUG
         generateTable("t-top-messages", ['Message', '# of uses'], reportData['topMessages']);
         generateTable("t-top-users", ['User', '# of messages'], reportData['topUsers']);
         generateTable("t-top-emotes", ['Emote', '# of uses'], reportData['topEmotes']);
         generateTable("t-top-hastags", ['Hashtag', '# of uses'], reportData['topHashtags']);
         generateTable("t-message-chains", ['# of chains', 'Message', 'Stopped By'], reportData['messageChains']);
+        generateTable("t-other-data", ['Other Data', 'Value'], collectOtherData(reportData));
     });
 }

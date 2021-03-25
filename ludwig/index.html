@@ -5,12 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subathon Stats</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M040DV931"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8M040DV931');
+    </script>
 </head>
 <body>
+    <div class="background"></div>
     <h1 class="title">Subathon Chat Stats</h1>
-    <h2 class="sub-text">View data for:</h2>
-    <button onclick="showData('D1')">Day 1</button>
-    <div id="display"></div>
+    <div class="nav">
+        <button onclick="showData('D1')">Day 1</button>
+        <button onclick="showData('D2')">Day 2</button>
+        <button onclick="showData('D3')">Day 3</button>
+        <button onclick="showData('D4')">Day 4</button>
+    </div>
+    <h2 class="sub-text">Press a button to view data</h2>
+    <div class="grid" data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 1540, "isFitWidth":true}'>
+        <div class="grid-sizer"></div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
