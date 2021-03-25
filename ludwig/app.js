@@ -40,7 +40,7 @@ function showData(day) {
         subText.innerHTML = `<span class='errorTXT'>This data does not exist</span>`;
         return
     }
-    subText.innerHTML = `Viewing data: <b>${day}</b><br><a href="reports/images/${day}.png" target="_blank">Infographic</a>`;
+    subText.innerHTML = `Viewing data: <b>${day}</b><br><a href="reports/images/${day}.png" target="_blank">Infographic Link</a>`;
     fetch(`reports/report-${day}.json`).then(r => r.text()).then(data => { // Request and parse json data for selected time period
         const reportData = JSON.parse(data);
         displayArea.innerText = null; // Clear the current display area
