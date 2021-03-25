@@ -21,6 +21,7 @@ body {
 .title {
     color: white;
     font-size: 60px;
+    text-align: center;
 }
 
 .sub-text {
