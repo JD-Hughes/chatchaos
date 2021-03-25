@@ -1,7 +1,7 @@
 const displayArea = document.querySelector('.grid');
 const subText = document.querySelector('.sub-text');
 
-const validDays = ['D1', 'D2', 'D3', 'D4'];
+const validDays = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6'];
 
 function generateTable(tableID, headers, data) {
     const tableElement = document.createElement('table');
