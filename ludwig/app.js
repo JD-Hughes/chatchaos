@@ -1,7 +1,7 @@
 const displayArea = document.querySelector('.grid');
 const subText = document.querySelector('.sub-text');
 
-const validDays = ['D1'];
+const validDays = ['D1', 'D2', 'D3'];
 
 function generateTable(tableID, headers, data) {
     const tableElement = document.createElement('table');
@@ -29,8 +29,8 @@ function generateTable(tableID, headers, data) {
 }
 
 function collectOtherData(reportData) {
-    const uniqueUsers = ['Total Unique Users:',reportData['totalUniqueUsers']];
-    const validMessages = ['Total Messages: ',reportData['totalValidMessages']];
+    const uniqueUsers = ['Total Unique Users',reportData['totalUniqueUsers']];
+    const validMessages = ['Total Messages',reportData['totalValidMessages']];
     return [validMessages,uniqueUsers]
 }
 

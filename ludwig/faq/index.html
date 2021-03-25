@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Chat Stats - FAQ</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M040DV931"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8M040DV931');
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="accordion">
+          <div class="accordion-item">
+            <button id="accordion-button-1" aria-expanded="false"><span class="accordion-title">How did you calculate this?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>Using a twitch chat downloader I downloaded all the chat logs from all the VOD’s over the Subathon. Then I wrote some very messy code over a few hours that works out all the stats and exports everything into a JSON file. The website imports the JSON file that I give it and it displays everything. Infographics are made by hand in Photoshop.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-2" aria-expanded="false"><span class="accordion-title">Why does "Messages" say LULW is the most popular, but emotes ranks are different?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>The “Most Popular” section is calculated using the entire message each user sends. “Top Emote” goes through each message and works out how many times the emote is used.<br> <br>For example: If 10 different people just type <i>“LULW”</i> as the entire message and one person types <i>“Sadge Sadge Sadge Sadge… (15 times)” </i>then LULW is the most popular message but Sadge is the most common emote.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-4" aria-expanded="false"><span class="accordion-title">"Can you add..."  or  "You got [x] wrong"</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>Send me a DM using the contact details on the <a href="https://chatchaos.tv" target="_blank">Home Page</a>. I might not be able to do it but any input is much appreciated</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-3" aria-expanded="false"><span class="accordion-title">Why did you do this?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>I dunno. I was bored and Ludwig's community loves statistics :)</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button id="accordion-button-5" aria-expanded="false"><span class="accordion-title">Can you send me the code?</span><span class="icon" aria-hidden="true"></span></button>
+            <div class="accordion-content">
+              <p>My code is <b>dog water</b> so no, not really. If you want any of the reports or raw data in JSON format let me know and I'll send that.<br>Or if you try to build it yourself and get stuck let me know, i'd be happy to help.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="app.js"></script>
+</body>
+</html>
