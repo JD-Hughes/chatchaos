@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Video Game Music Quiz</title>
+    <script src="script/fuse.js"></script>
+    <script src="script/audiojs/audio.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8M040DV931"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-8M040DV931');
+    </script>
+</head>
+
+<body id="main">
+    <h1>Video Game Music Quiz</h1>
+    <h4 style="color: grey; text-align: center;">Updated: 03/03/2021</h4>
+    <h4 style="color: grey; text-align: center;">If this quiz stops working then try <a href="https://jd-hughes.github.io/chatchaos/quiz/">Backup 1</a> or <a href="https://vgm.surge.sh/">Backup 2 (Old Version)</a></h4>
+    <div class="slidecontainer">
+        <h2 id="scoreTotal"></h2>
+        <h3>Volume</h3>
+        <input type="range" min="0" max="100" value="100" class="slider" id="volumeSlider" onchange="adjustVolume()">
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
