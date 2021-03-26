@@ -108,18 +108,12 @@
                 {"title":"Celeste", "src":"celeste.mp3"},
                 {"title":"Dead Space 2", "src":"deadspace.mp3", "alt":["Dead Space", "Deadspace2", "Deadspace"]},
                 {"title":"Overlord 2", "src":"overlord2.mp3", "alt":["Overlord"]},
-                {"title":"Metroid Prime", "src":"metroidprime.mp3", "alt":["Metroid Prime 2", "Metroid"]}
-            ]
-        },
-        {
-            "difficulty":"The Zionos Special",
-            "contents":[
+                {"title":"Metroid Prime", "src":"metroidprime.mp3", "alt":["Metroid Prime 2", "Metroid"]},
                 {"title":"Hades", "src":"z-hades.mp3"},
                 {"title":"Metal Gear Rising", "src":"z-mgr.mp3"},
                 {"title":"Goblin Slayer", "src":"z-goblinslayer.mp3"},
                 {"title":"Sekiro", "src":"z-sekiro.mp3"},
                 {"title":"Mother 3", "src":"z-mother3.mp3"}
-
             ]
         }
     ]

@@ -1,5 +1,5 @@
 const displayArea = document.querySelector('.grid');
-const subText = document.querySelector('.sub-text');
+const subText = document.querySelector('.info-text');
 
 const validDays = ['D1', 'D2', 'D3', 'D4', 'D5', 'D6', 'D7'];
 
@@ -37,10 +37,10 @@ function collectOtherData(reportData) {
 function showData(day) {
     if (!validDays.includes(day)) {  // Validate requested day
         displayArea.innerHTML = "";
-        subText.innerHTML = `<span class='errorTXT'>This data does not exist (yet)</span>`;
+        subText.innerHTML = `<span class='errorTXT'>This data does not exist <span style="font-size: 20px">(yet)</span></span>`;
         return
     }
-    subText.innerHTML = `Viewing data: <b>${day}</b><br><a href="reports/images/${day}.png" target="_blank">Infographic Link</a>`;
+    subText.innerHTML = `Viewing data: <b>${day}</b> <a href="reports/images/${day}.png" target="_blank">(View Infographic)</a>`;
     fetch(`reports/report-${day}.json`).then(r => r.text()).then(data => { // Request and parse json data for selected time period
         const reportData = JSON.parse(data);
         displayArea.innerText = null; // Clear the current display area

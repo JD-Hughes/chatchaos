@@ -21,18 +21,25 @@ body {
 
 .title {
     color: white;
-    font-size: 60px;
+    font-size: 70px;
     text-align: center;
+    margin-bottom: 0;
+}
+.subtitle {
+    margin-top: 0;
+    color: #aaa;
+    font-size: 18px;
 }
 
-.sub-text {
+.info-text {
     color: white;
     font-size: 30px;
     text-align: center;
 }
 
-.sub-text a {
+.info-text a {
     color: rgb(192, 192, 192);
+    font-size: 0.75em;
 }
 
 .grid {
@@ -118,7 +125,7 @@ button:hover {
     top: 0;
     left: 0;
     font-size: 25px;
-    padding: 0.6em 1.2em;
+    padding: 0.3em 0.9em;
     background-color: #a1000098;
     color: white;
     border-bottom-right-radius: 8px;
