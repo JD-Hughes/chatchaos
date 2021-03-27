@@ -67,7 +67,24 @@ function drawGraph(dataPoints) {
         },
 
         // Configuration options go here
-        options: {}
+        options: {
+            scales: {
+                xAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Hours since start'
+                    }
+                }],
+                yAxes: [{
+                    display: true,
+                    scaleLabel: {
+                        display: true,
+                        labelString: 'Messages per hour'
+                    }
+                }]
+            }
+        }
     });
 }
 
@@ -88,7 +105,6 @@ function weeklySummary(reportData) {
     summary.appendChild(container);
     summary.appendChild(generateTable("t-top-hastags", ['Hashtag', '# of uses'], reportData['topHash'], "Top Hashtags"));
     summary.id = 'week-container';
-    console.log(reportData);
     document.getElementById('main').appendChild(summary)
 }
 
