@@ -92,18 +92,22 @@ function weeklySummary(reportData) {
     var summary = document.createElement('div');
     var container = document.createElement('div');
     var container2 = document.createElement('div');
+    var container3 = document.createElement('div');
     var graph = document.createElement('canvas');
     graph.id = 'msg-chart';
     container.className = "hoz-container";
     container2.className = "hoz-container";
+    container3.className = "hoz-container";
     container.appendChild(generateTable("t-top-messages", ['Message', '# of uses'], reportData['topUsers'], "Weekly Top Users"));
     container.appendChild(generateTable("t-top-emotes", ['Emote', '# of uses'], reportData['topEmote'], "Weekly Top Emotes"));
     summary.appendChild(graph);
     container2.appendChild(generateTable("t-totals-data", ['Data', 'Value'], reportData['totals'], "Totals"));
     container2.appendChild(generateTable("t-extra-data", ['Data', 'Times Said'], reportData['extraStats'], "Extra / Memes"));
+    container3.appendChild(generateTable("t-top-hastags", ['Hashtag', '# of uses'], reportData['topHash'], "Weekly Top Hashtags"));
+    container3.appendChild(generateTable("t-top-chains", ['# of Chains', 'Message', 'Interrupted By'], reportData['topChains'], "Weekly Top Message Chains"));
     summary.appendChild(container2);
     summary.appendChild(container);
-    summary.appendChild(generateTable("t-top-hastags", ['Hashtag', '# of uses'], reportData['topHash'], "Top Hashtags"));
+    summary.appendChild(container3);
     summary.id = 'week-container';
     document.getElementById('main').appendChild(summary)
 }
