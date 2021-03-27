@@ -74,13 +74,17 @@ function drawGraph(dataPoints) {
 function weeklySummary(reportData) {
     var summary = document.createElement('div');
     var container = document.createElement('div');
+    var container2 = document.createElement('div');
     var graph = document.createElement('canvas');
     graph.id = 'msg-chart';
     container.className = "hoz-container";
+    container2.className = "hoz-container";
     container.appendChild(generateTable("t-top-messages", ['Message', '# of uses'], reportData['topUsers'], "Weekly Top Users"));
     container.appendChild(generateTable("t-top-emotes", ['Emote', '# of uses'], reportData['topEmote'], "Weekly Top Emotes"));
     summary.appendChild(graph);
-    summary.appendChild(generateTable("t-totals-data", ['Other Data', 'Value'], collectOtherData(reportData), "Totals"));
+    container2.appendChild(generateTable("t-totals-data", ['Data', 'Value'], reportData['totals'], "Totals"));
+    container2.appendChild(generateTable("t-extra-data", ['Data', 'Times Said'], reportData['extraStats'], "Extra / Memes"));
+    summary.appendChild(container2);
     summary.appendChild(container);
     summary.appendChild(generateTable("t-top-hastags", ['Hashtag', '# of uses'], reportData['topHash'], "Top Hashtags"));
     summary.id = 'week-container';
