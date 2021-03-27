@@ -59,6 +59,12 @@ body {
     width: 440px;
 }
 
+.grid-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 8px;
+}
+
 table, th, td {
     border: 1px black solid;
     border-collapse: collapse;
@@ -130,4 +136,26 @@ button:hover {
     color: white;
     border-bottom-right-radius: 8px;
     text-decoration: none;
+}
+
+#week-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#t-toals-data {
+    margin: 0 auto;
+}
+
+.hoz-container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#msg-chart {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px #000000;
+    margin: 0 auto;
 }
