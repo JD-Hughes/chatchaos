@@ -36,6 +36,11 @@ span {
     padding-left: 0.6rem;
 }
 
+.event-time {
+    color: rgba(0, 0, 0, 0.4);
+    padding-left: 0.6rem;
+}
+
 #timer {
     font-size: 80px;
 }

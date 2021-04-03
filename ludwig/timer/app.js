@@ -48,7 +48,14 @@ function addTime(seconds) {
 }
 
 function addEvent(eventTitle, eventText, eventType) {
-    var element = `<span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><br>`
+    var now = new Date().getTime();
+    var distance = (coutdownTime - now);
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + (days * 24));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    distance = hours + ":" + minutes + ":" + pad(seconds,2);
+    var element = `<span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
     eventViewer.innerHTML += element
 }
 
