@@ -54,7 +54,7 @@ function addEvent(eventTitle, eventText, eventType) {
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + (days * 24));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    distance = hours + ":" + minutes + ":" + pad(seconds,2);
+    distance = hours + ":" + pad(minutes,2) + ":" + pad(seconds,2);
     var element = `<span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
     eventViewer.innerHTML += element
 }
