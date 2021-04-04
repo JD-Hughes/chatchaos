@@ -8,15 +8,13 @@ const timeValues = {
     "Prime" : 10,
     1000 : 10,
     2000 : 20,
-    3000 : 25,
-    "bits" : 10
+    3000 : 30,
 }
 const planTypes = {
     "Prime" : "Prime",
     1000 : "Tier 1",
     2000 : "Tier 2",
     3000 : "Tier 3",
-    "bits" : 10
 }
 
 var coutdownTime = new Date().getTime();
@@ -41,6 +39,7 @@ function setTimer() {
     const seconds = document.querySelector('#inputSeconds').value * 1000;
     const newTime = new Date().getTime() + new Date(hours + minutes + seconds).getTime();
     coutdownTime = newTime;
+    addEvent("TIME UPDATED","-", "NEW TIME:");
 }
 
 function addTime(seconds) {
@@ -49,13 +48,14 @@ function addTime(seconds) {
 
 function addEvent(eventTitle, eventText, eventType) {
     var now = new Date().getTime();
+    var eventTimeStamp = convertTime((new Date(now - startTime).getTime())/1000);
     var distance = (coutdownTime - now);
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + (days * 24));
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     distance = hours + ":" + pad(minutes,2) + ":" + pad(seconds,2);
-    var element = `<span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
+    var element = `<span class="event-timestamp">${eventTimeStamp}</span><span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
     eventViewer.innerHTML += element
 }
 
@@ -70,7 +70,7 @@ function convertTime(totalseconds) {
     var minutesout = pad(Math.floor((totalseconds - daysout * day - hoursout * hour)/minute),2);
     var secondsout = pad(Math.floor(totalseconds - daysout * day - hoursout * hour - minutesout * minute),2);
 
-    var dateString = `${daysout} Days ${hoursout}:${minutesout}:${secondsout}`;
+    var dateString = `${daysout} - ${hoursout}:${minutesout}:${secondsout}`;
 
     return dateString;
 }
@@ -86,20 +86,24 @@ client.connect().then(() => {
 
 client.on("subscription", (channel, username, method, message, userstate) => {
     addTime(timeValues[method['plan']]);
-    addEvent("SUB",username,planTypes[method['plan']])
+    addEvent("SUB",username,planTypes[method['plan']]);
 });
 
 client.on("resub", (channel, username, streakMonths, recipient, methods, userstate) => {
     addTime(timeValues[methods['msg-param-sub-plan']]);
-    addEvent("RESUB",username,planTypes[methods['msg-param-sub-plan']])
+    addEvent("RESUB",username,planTypes[methods['msg-param-sub-plan']]);
 });
 
 client.on("subgift", (channel, username, streakMonths, recipient, methods, userstate) => {
     addTime(timeValues[methods['plan']]);
-    addEvent("GIFT SUB",`FROM ${username} TO ${recipient}`,planTypes[methods['plan']])
+    addEvent("GIFT SUB",`${username} >> ${recipient}`,planTypes[methods['plan']]);
 });
 
-console.log(timeValues);
+client.on("cheer", (channel, userstate, message) => {
+    console.log(channel, userstate['bits'], message);
+    addTime(Math.floor(userstate['bits']/100)*2);
+    addEvent("CHEER",`${userstate['username']}`,`${userstate['bits']} BITS`);
+});
 
 // Update the count down every 1 second
 var x = setInterval(function() {

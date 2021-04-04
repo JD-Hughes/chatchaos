@@ -26,9 +26,19 @@ span {
     width: 50px;
 }
 
+.event-timestamp {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    vertical-align: text-top;
+}
+
 .event-title {
     color: blueviolet;
-    padding-right: 0.6rem;
+    padding-left: 0.6rem;
+}
+
+.event-text {
+    padding-left: 0.6rem;
 }
 
 .event-type {
@@ -37,8 +47,8 @@ span {
 }
 
 .event-time {
-    color: rgba(0, 0, 0, 0.4);
     padding-left: 0.6rem;
+    color: #008000;
 }
 
 #timer {
