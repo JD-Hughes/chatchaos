@@ -74,7 +74,7 @@
                 {"title":"Fallout 3", "src":"fallout.mp3"},
                 {"title":"Batman: Arkham City", "src":"batman.mp3", "alt":["Batman Arkham City", "Arkham City", "Batman"]},
                 {"title":"Yakuza 0", "src":"yakuza.mp3", "alt":["Yakuza"]},
-                {"title":"Mirror's Edge", "src":"mirror2.mp3", "alt":["Mirror's Edge","Mirrors Edge"]},
+                {"title":"Mirror's Edge", "src":"mirror2.mp3", "alt":["Mirrors Edge"]},
                 {"title":"Need for Speed: Hot Pursuit", "src":"nfshp.mp3", "alt":["Need for speed", "Hot persuit"]},
                 {"title":"World's Hardest Game", "src":"worldshardestgame.mp3", "alt":["Worlds Hardest Game", "Hardest Game Ever", "The worlds hardest game", "The world's hardest game"]},
                 {"title":"Crysis 3", "src":"crysis.mp3"},
