@@ -17,6 +17,8 @@ const planTypes = {
     3000 : "Tier 3",
 }
 
+var csvFileData = [];  
+
 var coutdownTime = new Date().getTime();
 
 const client = new tmi.Client({
@@ -55,8 +57,10 @@ function addEvent(eventTitle, eventText, eventType) {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     distance = hours + ":" + pad(minutes,2) + ":" + pad(seconds,2);
-    var element = `<span class="event-timestamp">${eventTimeStamp}</span><span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
-    eventViewer.innerHTML += element
+    var htmlElement = `<span class="event-timestamp">${eventTimeStamp}</span><span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
+    var csvElement = [eventTimeStamp, eventTitle,eventText,eventType,distance];
+    csvFileData.push(csvElement)
+    eventViewer.innerHTML += htmlElement
 }
 
 function convertTime(totalseconds) {
@@ -130,3 +134,39 @@ var x = setInterval(function() {
     document.getElementById("timer").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+
+/// =================================== ///
+
+//create CSV file data in an array  
+     
+ //create a user-defined function to download CSV file   
+function download_csv_file() {  
+
+    //define the heading for each row of the data  
+    var csv = 'Time (Since Live Started),Event,Username,Tier,Timer\n';  
+    
+    //merge the data with CSV  
+    csvFileData.forEach(function(row) {  
+            csv += row.join(',');  
+            csv += "\n";  
+    });  
+
+    //display the created CSV data on the web browser   
+//  document.write(csv);  
+
+    
+    var hiddenElement = document.createElement('a');  
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv); 
+    hiddenElement.target = '_blank';
+    hiddenElement.setAttribute('target','_new')
+    
+    //provide the name for the CSV file to be downloaded  
+    hiddenElement.download = 'output.csv';
+    hiddenElement.click();  
+}  
+
+function clearEvents() {
+    eventViewer.innerHTML = "";
+    csvFileData = [];
+}
