@@ -120,13 +120,13 @@ client.on("cheer", (channel, userstate, message) => {
     subData5['bits']+= parseInt(userstate['bits']);
 });
 
-function calculate5minsubs(now, streamtime) {
+function calculate5minsubs(now, streamtime, timer) {
     var mins = new Date(now - startTime).getMinutes();
     var prevEntryMins = csv5MinData.length-1 >= 0 ? csv5MinData[csv5MinData.length-1][0].split(':')[1] : null;
     var currEntryMins = streamtime.split(':')[1]
     console.log(currEntryMins, prevEntryMins);
     if ((mins % 5 == 0) && (prevEntryMins != currEntryMins)){
-        csv5MinData.push([streamtime,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']])
+        csv5MinData.push([streamtime,timer,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']])
         subData5['sub'] = 0;
         subData5['resub'] = 0;
         subData5['giftsub'] = 0;
@@ -150,7 +150,7 @@ var x = setInterval(function() {
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  calculate5minsubs(now,updateTimeSince(now));
+  calculate5minsubs(now,updateTimeSince(now),`${hours}:${minutes}:${seconds}`);
     
   // Output the result in an element with id="demo"
   document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
@@ -176,7 +176,7 @@ function download_csv_file(type) {
             break;
 
         case "5min":
-            var csv = 'Time (Since Live Started),Subs,Resubs,Gift Subs,Total Bits\n'; 
+            var csv = 'Time (Since Live Started),Timer,Subs,Resubs,Gift Subs,Total Bits\n'; 
             var data = csv5MinData;
             break;
     }  
