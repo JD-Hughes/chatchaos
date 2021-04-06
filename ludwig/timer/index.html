@@ -9,7 +9,8 @@
 </head>
 <body>
     <div>
-        <button onclick="download_csv_file()"> Download CSV</button>  
+        <button onclick="download_csv_file('all')"> Download All Events</button>
+        <button onclick="download_csv_file('5min')"> Download Subs (Per 5)</button>  
         <button onclick="clearEvents()">Clear Event List</button>
     </div>
     <div id="inputDIV">
@@ -18,8 +19,8 @@
         <input type="number" class="inputBox" id="inputSeconds">
         <input type="submit" value="Set Timer" onclick="setTimer()">
     </div>
+    <h1 id="timer"></h1>
     <small id="time-since-start"></small>
-    <h1 id="timer">TIMER GOES HERE</h1>
     <p id="event-viewer"></p>
     <script type="text/javascript" src="../../tmi.min.js"></script>
     <script src="app.js"></script>

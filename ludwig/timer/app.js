@@ -18,6 +18,13 @@ const planTypes = {
 }
 
 var csvFileData = [];  
+var csv5MinData = [];
+var subData5 = {
+    "sub" : 0,
+    "resub" : 0,
+    "giftsub" : 0,
+    "bits" : 0
+};
 
 var coutdownTime = new Date().getTime();
 
@@ -81,7 +88,7 @@ function convertTime(totalseconds) {
 
 function updateTimeSince(now) {
     var secondsSince = (new Date(now - startTime).getTime())/1000;
-    timeSinceStart.innerHTML = `Ludwig has been streaming for <b>${convertTime(secondsSince)}</b>`;
+    return convertTime(secondsSince)
 }
   
 client.connect().then(() => {
@@ -91,30 +98,45 @@ client.connect().then(() => {
 client.on("subscription", (channel, username, method, message, userstate) => {
     addTime(timeValues[method['plan']]);
     addEvent("SUB",username,planTypes[method['plan']]);
+    subData5['sub']++;
 });
 
 client.on("resub", (channel, username, streakMonths, recipient, methods, userstate) => {
     addTime(timeValues[methods['msg-param-sub-plan']]);
     addEvent("RESUB",username,planTypes[methods['msg-param-sub-plan']]);
+    subData5['resub']++;
 });
 
 client.on("subgift", (channel, username, streakMonths, recipient, methods, userstate) => {
     addTime(timeValues[methods['plan']]);
     addEvent("GIFT SUB",`${username} >> ${recipient}`,planTypes[methods['plan']]);
+    subData5['giftsub']++;
 });
 
 client.on("cheer", (channel, userstate, message) => {
     console.log(channel, userstate['bits'], message);
     addTime(Math.floor(userstate['bits']/100)*2);
     addEvent("CHEER",`${userstate['username']}`,`${userstate['bits']} BITS`);
+    subData5['bits']+= userstate['bits'];
 });
+
+function calculate5minsubs(now, streamtime) {
+    var mins = new Date(now - startTime).getMinutes();
+    var prevEntryMins = csv5MinData.length-1 >= 0 ? csv5MinData[csv5MinData.length-1][0].split(':')[1] : null;
+    var currEntryMins = streamtime.split(':')[1]
+    console.log(currEntryMins, prevEntryMins);
+    if ((mins % 5 == 0) && (prevEntryMins != currEntryMins)){
+        csv5MinData.push([streamtime,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']])
+        subData5['sub'] = subData5['resub'] = subData5['giftsub'] = subData5['bits'] = 0;
+    }
+}
 
 // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
-  updateTimeSince(now);
+  timeSinceStart.innerHTML = `Ludwig has been streaming for <b>${updateTimeSince(now)}</b>`;;
     
   // Find the distance between now and the count down date
   var distance = coutdownTime - now;
@@ -124,6 +146,8 @@ var x = setInterval(function() {
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60) + (days * 24));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  calculate5minsubs(now,updateTimeSince(now));
     
   // Output the result in an element with id="demo"
   document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
@@ -131,7 +155,7 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     // clearInterval(x);
-    document.getElementById("timer").innerHTML = "EXPIRED";
+    document.getElementById("timer").innerHTML = "Time < 0";
   }
 }, 1000);
 
@@ -141,13 +165,21 @@ var x = setInterval(function() {
 //create CSV file data in an array  
      
  //create a user-defined function to download CSV file   
-function download_csv_file() {  
+function download_csv_file(type) {  
+    switch (type) {
+        case "all":
+            var csv = 'Time (Since Live Started),Event,Username,Tier,Timer\n'; 
+            var data = csvFileData;
+            break;
 
-    //define the heading for each row of the data  
-    var csv = 'Time (Since Live Started),Event,Username,Tier,Timer\n';  
+        case "5min":
+            var csv = 'Time (Since Live Started),Subs,Resubs,Gift Subs,Total Bits\n'; 
+            var data = csv5MinData;
+            break;
+    }  
     
     //merge the data with CSV  
-    csvFileData.forEach(function(row) {  
+    data.forEach(function(row) {  
             csv += row.join(',');  
             csv += "\n";  
     });  
@@ -169,4 +201,5 @@ function download_csv_file() {
 function clearEvents() {
     eventViewer.innerHTML = "";
     csvFileData = [];
+    csv5MinData = [];
 }
