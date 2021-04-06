@@ -117,7 +117,7 @@ client.on("cheer", (channel, userstate, message) => {
     console.log(channel, userstate['bits'], message);
     addTime(Math.floor(userstate['bits']/100)*2);
     addEvent("CHEER",`${userstate['username']}`,`${userstate['bits']} BITS`);
-    subData5['bits']+= userstate['bits'];
+    subData5['bits']+= parseInt(userstate['bits']);
 });
 
 function calculate5minsubs(now, streamtime) {
@@ -127,7 +127,10 @@ function calculate5minsubs(now, streamtime) {
     console.log(currEntryMins, prevEntryMins);
     if ((mins % 5 == 0) && (prevEntryMins != currEntryMins)){
         csv5MinData.push([streamtime,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']])
-        subData5['sub'] = subData5['resub'] = subData5['giftsub'] = subData5['bits'] = 0;
+        subData5['sub'] = 0;
+        subData5['resub'] = 0;
+        subData5['giftsub'] = 0;
+        subData5['bits'] = 0;
     }
 }
 
