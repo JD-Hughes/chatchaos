@@ -70,11 +70,11 @@ function convertTime(totalseconds) {
     var minute = 60;
     
     var daysout = Math.floor(totalseconds / day);
-    var hoursout = pad(Math.floor((totalseconds - daysout * day)/hour),2);
-    var minutesout = pad(Math.floor((totalseconds - daysout * day - hoursout * hour)/minute),2);
-    var secondsout = pad(Math.floor(totalseconds - daysout * day - hoursout * hour - minutesout * minute),2);
+    var hoursout = (Math.floor((totalseconds - daysout * day)/hour));
+    var minutesout = (Math.floor((totalseconds - daysout * day - hoursout * hour)/minute));
+    var secondsout = (Math.floor(totalseconds - daysout * day - hoursout * hour - minutesout * minute));
 
-    var dateString = `${daysout} - ${hoursout}:${minutesout}:${secondsout}`;
+    var dateString = `${(daysout*24)+hoursout}:${pad(minutesout,2)}:${pad(secondsout,2)}`;
 
     return dateString;
 }
