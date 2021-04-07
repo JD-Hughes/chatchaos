@@ -16,7 +16,7 @@ const planTypes = {
     2000 : "Tier 2",
     3000 : "Tier 3",
 }
-
+var botSubCount = null;
 var csvFileData = [];  
 var csv5MinData = [];
 var subData5 = {
@@ -95,6 +95,13 @@ client.connect().then(() => {
     console.log(`Connected to: ${channel}`);
 });
 
+client.on('message', (wat, tags, message, self) => {
+    if (self) return;
+    if ((tags.username == "streamelements") && (message.startsWith("Current sub count:"))){
+        botSubCount = message.split(" ")[3]
+    }
+});
+
 client.on("subscription", (channel, username, method, message, userstate) => {
     addTime(timeValues[method['plan']]);
     addEvent("SUB",username,planTypes[method['plan']]);
@@ -114,19 +121,28 @@ client.on("subgift", (channel, username, streakMonths, recipient, methods, users
 });
 
 client.on("cheer", (channel, userstate, message) => {
-    console.log(channel, userstate['bits'], message);
+    // console.log(channel, userstate['bits'], message);
     addTime(Math.floor(userstate['bits']/100)*2);
     addEvent("CHEER",`${userstate['username']}`,`${userstate['bits']} BITS`);
     subData5['bits']+= parseInt(userstate['bits']);
 });
 
+const getViewerCount = async () => {
+    var origin = window.location.protocol + '//' + window.location.host;
+    const response = await fetch('http://cors-anywhere.herokuapp.com/tmi.twitch.tv/group/user/ludwig?nochache='+Math.floor(Math.random()*10000), {headers:{"Content-Type":"application/json","Accept":"application/json","Origin":origin}});
+    const json = await response.json();
+    var chatterCount = await json['chatter_count'];
+    return await chatterCount
+}
+
 function calculate5minsubs(now, streamtime, timer) {
     var mins = new Date(now - startTime).getMinutes();
     var prevEntryMins = csv5MinData.length-1 >= 0 ? csv5MinData[csv5MinData.length-1][0].split(':')[1] : null;
     var currEntryMins = streamtime.split(':')[1]
-    console.log(currEntryMins, prevEntryMins);
-    if ((mins % 5 == 0) && (prevEntryMins != currEntryMins)){
-        csv5MinData.push([streamtime,timer,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']])
+    if ((mins % 1 == 0) && (prevEntryMins != currEntryMins)){
+        var data = [streamtime,timer,subData5['sub'],subData5['resub'],subData5['giftsub'],subData5['bits']];
+        getViewerCount().then(function(viewerCount){data.push(viewerCount,botSubCount)});
+        csv5MinData.push(data);
         subData5['sub'] = 0;
         subData5['resub'] = 0;
         subData5['giftsub'] = 0;
@@ -176,7 +192,7 @@ function download_csv_file(type) {
             break;
 
         case "5min":
-            var csv = 'Time (Since Live Started),Timer,Subs,Resubs,Gift Subs,Total Bits\n'; 
+            var csv = 'Time (Since Live Started),Timer,Subs,Resubs,Gift Subs,Total Bits,Viewer Count,Bot Sub Count\n'; 
             var data = csv5MinData;
             break;
     }  
