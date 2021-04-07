@@ -129,7 +129,7 @@ client.on("cheer", (channel, userstate, message) => {
 
 const getViewerCount = async () => {
     var origin = window.location.protocol + '//' + window.location.host;
-    const response = await fetch('http://cors-anywhere.herokuapp.com/tmi.twitch.tv/group/user/ludwig?nochache='+Math.floor(Math.random()*10000), {headers:{"Content-Type":"application/json","Accept":"application/json","Origin":origin}});
+    const response = await fetch('https://cors-anywhere.herokuapp.com/tmi.twitch.tv/group/user/ludwig?nochache='+Math.floor(Math.random()*10000), {headers:{"Content-Type":"application/json","Accept":"application/json","Origin":origin}});
     const json = await response.json();
     var chatterCount = await json['chatter_count'];
     return await chatterCount
