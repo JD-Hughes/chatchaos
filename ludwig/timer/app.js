@@ -8,7 +8,7 @@ const timeValues = {
     "Prime" : 10,
     1000 : 10,
     2000 : 20,
-    3000 : 30,
+    3000 : 50,
 }
 const planTypes = {
     "Prime" : "Prime",
