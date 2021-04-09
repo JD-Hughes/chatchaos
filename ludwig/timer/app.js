@@ -3,6 +3,7 @@ const timeSinceStart = document.querySelector('#time-since-start');
 const eventViewer = document.querySelector('#event-viewer');
 const channel = "ludwig";
 const startTime = new Date('2021-03-14T20:25:00.00Z').getTime()
+const eventViewerLength = 20;
 const timeValues = {
     "init" : 600,
     "Prime" : 10,
@@ -64,10 +65,16 @@ function addEvent(eventTitle, eventText, eventType) {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     distance = hours + ":" + pad(minutes,2) + ":" + pad(seconds,2);
-    var htmlElement = `<span class="event-timestamp">${eventTimeStamp}</span><span class="event-title">${eventTitle}</span><span class="event-text">${eventText}</span><span class="event-type">${eventType}</span><span class="event-time">${distance}</span><br>`
     var csvElement = [eventTimeStamp, eventTitle,eventText,eventType,distance];
-    csvFileData.push(csvElement)
-    eventViewer.innerHTML += htmlElement
+    csvFileData.push(csvElement);
+    var elementArray = csvFileData.slice(Math.max(csvFileData.length-eventViewerLength,0));
+    var eventViewerData = ""
+    for (let i = 0; i < elementArray.length; i++) {
+        const element = elementArray[i];
+        var htmlElement = `<span class="event-timestamp">${element[0]}</span><span class="event-title">${element[1]}</span><span class="event-text">${element[2]}</span><span class="event-type">${element[3]}</span><span class="event-time">${element[4]}</span><br>`
+        eventViewerData += htmlElement;
+    }
+    eventViewer.innerHTML = eventViewerData
 }
 
 function convertTime(totalseconds) {
