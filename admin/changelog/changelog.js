@@ -4,17 +4,17 @@ function createHead(version,date , title) {
     const element = document.createElement('div');
     const versionElement = document.createElement('span');
     versionElement.className = "version-number";
-    versionElement.innerHTML = `<h2>${version}</h2>`
+    versionElement.innerHTML = `${version}`
     element.appendChild(versionElement);
 
     const dateElement = document.createElement('span');
     dateElement.className = "version-date";
-    dateElement.innerHTML = `<h2>${date}</h2>`
+    dateElement.innerHTML = `${date}`
     element.appendChild(dateElement);
 
     const versionTitle = document.createElement('span');
     versionTitle.className = "version-title";
-    versionTitle.innerHTML = `<h2>${title}</h2>`
+    versionTitle.innerHTML = `${title}`
     element.appendChild(versionTitle);
     return element
 }
@@ -29,6 +29,7 @@ function createBody(description, changes, notes) {
     if (changes['added'].length > 0) {
         const changeTitle = document.createElement('h2');
         changeTitle.innerText = "Added";
+        changeTitle.className = "added";
         element.appendChild(changeTitle);
         for (let i = 0; i < changes['added'].length; i++) {
             const change = changes['added'][i];
@@ -42,6 +43,7 @@ function createBody(description, changes, notes) {
     if (changes['updated'].length > 0) {
         const changeTitle = document.createElement('h2');
         changeTitle.innerText = "Updated";
+        changeTitle.className = "updated";
         element.appendChild(changeTitle);
         for (let i = 0; i < changes['updated'].length; i++) {
             const change = changes['updated'][i];
@@ -55,6 +57,7 @@ function createBody(description, changes, notes) {
     if (changes['removed'].length > 0) {
         const changeTitle = document.createElement('h2');
         changeTitle.innerText = "Removed";
+        changeTitle.className = "removed";
         element.appendChild(changeTitle);
         for (let i = 0; i < changes['removed'].length; i++) {
             const change = changes['removed'][i];
@@ -74,7 +77,8 @@ function createBody(description, changes, notes) {
 
 function buildDIV(data) {
     var mainDIV = document.createElement('div');
-    mainDIV.id = `Version-${data['version']}`
+    mainDIV.id = `Version-${data['version']}`;
+    mainDIV.className = "major-version";
 
     var versionHead = createHead(data['version'], data['date'], data['title'])
     versionHead.className = "version-head";
@@ -84,7 +88,7 @@ function buildDIV(data) {
 
     mainDIV.appendChild(versionHead);
     mainDIV.appendChild(versionBody);
-    mainDIV.appendChild(document.createElement('hr'));
+    // mainDIV.appendChild(document.createElement('hr'));
     return mainDIV
 }
 

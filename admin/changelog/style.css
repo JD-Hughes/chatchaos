@@ -5,6 +5,7 @@ body {
     background-color: #1c1c1d;
     margin: auto;
     font-family: 'Exo', sans-serif;
+    color: white;
 }
 
 h1 {
@@ -19,4 +20,44 @@ h2 {
     color: #A0A5A6;
     text-align: center;
     margin-bottom: 40px;
+}
+
+.major-version {
+    background-color: #3a3a3a;
+    border-radius: 30px;
+    margin: 10px;
+    padding: 20px;
+}
+
+.version-head {
+    display: flex;
+    flex-direction: column;
+}
+
+.version-number{
+    color: rgb(137, 15, 207);
+    /* text-align: center; */
+}
+
+.version-date {
+    color: rgb(175, 3, 175);
+    /* text-align: center; */
+}
+
+.version-title {
+    font-size: 30px;
+    color: #A0A5A6;
+    text-align: center;
+}
+
+.added {
+    color: #039403;
+}
+
+.updated {
+    color: #ffa500;
+}
+
+.removed{
+    color: #ff0000;
 }
