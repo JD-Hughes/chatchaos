@@ -9,7 +9,7 @@ let playerScore = 0;
 const searchOptions = { includeScore: true, threshold: 0.15 };
 
 let movies = [
-    { title: "Spectre", src: "kEnK0ZdMThc", alt: ["James Bond"] },
+    { title: "Spectre", src: "kEnK0ZdMThc" },
     { title: "John Wick 2", src: "qIalODmFrZk", alt: ["John Wick"] },
     { title: "Baby Driver", src: "7ARFyrM6gVs" },
     { title: "Taken", src: "jZOywn1qArI" },
@@ -29,14 +29,14 @@ let movies = [
             "spider man",
         ],
     },
-    { title: "Avengers: Endgame", src: "tdMaz-x8BAI", alt: ["Endgame"] },
+    { title: "Avengers: Endgame", src: "tdMaz-x8BAI", alt: ["Endgame", "Avengers Endgame"] },
     { title: "X-Men: Days of future past", src: "T9GFyZ5LREQ", alt: ["xmen", "days of future past"] },
     { title: "Deadpool", src: "tLmStxxzhkI" },
     { title: "Tenet", src: "4xj0KRqzo-0" },
-    { title: "The Dark Knight", src: "nyepdtx_UI4" },
+    { title: "The Dark Knight", src: "nyepdtx_UI4", alt: ["Batman The Dark Knight", "Batman: The Dark Knight"] },
     { title: "Inception", src: "TAbbJT0ZXmk" },
     { title: "The Avengers", src: "SLD9xzJ4oeU", alt: ["Avengers"] },
-    { title: "Mission Impossible: Ghost Protocol", src: "qtA0JS1lBaY", alt: ["Mission Impossible", "Ghost Protocol", "Mission Impossible Ghost Protocol"] },
+    { title: "Mission Impossible: Ghost Protocol", src: "qtA0JS1lBaY", alt: ["Mission Impossible", "Ghost Protocol", "Mission Impossible Ghost Protocol", "MI Ghost Protocol", "MI: Ghost Protocol"] },
     { title: "Mission Impossible: Fallout", src: "hhLIwmgx3vI", alt: ["Mission Impossible", "Fallout"] },
     { title: "Legend", src: "zZ7AWVKbPWY" },
     { title: "The Matrix", src: "zE7PKRjrid4" },
@@ -70,7 +70,10 @@ let movies = [
             "The Deathly Hallows",
             "Deathly Hallows: Part 1",
             "The Deathly Hallows: Part 1",
+            "Harry Potter Deathly Hallows",
             "Harry Potter and the Deathly Hallows",
+            "Harry Potter Deathly Hallows Part 1",
+            "Harry Potter Deathly Hallows: Part 1",
             "Harry Potter and the Deathly Hallows Part 1",
             "Harry Potter and the Deathly Hallows: Part 2",
             "Harry Potter and the Deathly Hallows Part 2",
@@ -78,9 +81,9 @@ let movies = [
     },
     { title: "Inside Out", src: "ISaHt3ps1dM" },
     { title: "The Martian", src: "BH-UmA5Lt3g", alt: ["Martian"] },
-    { title: "Sherlock Holmes: A Game of Shadows", src: "qy6Kh5dkTeo", alt: ["Sherlock Holmes"] },
+    { title: "Sherlock Holmes: A Game of Shadows", src: "qy6Kh5dkTeo", alt: ["Sherlock Holmes", "Sherlock Holmes A Game of Shadows"] },
     { title: "Sully", src: "fJ5ZLdJDBrg" },
-    { title: "Forrest Gump", src: "gAw9Ps-jwzM" },
+    { title: "Forrest Gump", src: "gAw9Ps-jwzM", alt: ["Forest Gump"] },
     { title: "Venom", src: "UCGdsPwcKKg" },
     { title: "Shark Tale", src: "TxV4VUWk1fA" },
     { title: "Coach Carter", src: "6p3GaCwvUoE" },
@@ -88,10 +91,10 @@ let movies = [
     { title: "Kingsman: The Secret Service", src: "HDJEyqNw-9k", alt: ["Kingsman", "Kingsman the secret service"] },
     { title: "Law Abiding Citizen", src: "7uR5PyoLa3o" },
     { title: "Fight Club", src: "PXcEPSUl0uE" },
-    { title: "Casino Royale", src: "iZxNbAwY_rk", alt: ["James Bond"] },
+    { title: "Casino Royale", src: "iZxNbAwY_rk" },
     { title: "300", src: "70aq-TyeLf8" },
     { title: "Indiana Jones and the Raiders of the Lost Ark", src: "mC1ikwQ5Zgc", alt: ["Indiana Jones", "Raiders of the Lost Ark"] },
-    { title: "The Great Escape", src: "O-qHlz4hfak" },
+    { title: "The Great Escape", src: "O-qHlz4hfak", alt: ["Great Escape"] },
     { title: "Les Misérables", src: "ojoC-Kbzpo8", alt: ["Les Miserables"] },
     { title: "Love Actually", src: "cfNzZre-sIU" },
     { title: "Mamma Mia", src: "QRoWiTcO7dk" },
@@ -109,11 +112,18 @@ let movies = [
     { title: "Crocodile Dundee", src: "dSnosk4tWrg" },
     { title: "The Greatest Showman", src: "g9r5PFZihC4" },
     { title: "Titanic", src: "RXii-MAqt5E" },
-    { title: "Ocean's Thirteen", src: "7oM7-Jsa168", alt: ["Oceans Thirteen", "Ocean's 13", "Oceans 13", "Oceans 11", "Ocean's 11", "Oceans Eleven", "Ocean's Eleven"] },
+    { title: "Ocean's Thirteen", src: "7oM7-Jsa168", alt: ["Oceans Thirteen", "Ocean's 13", "Oceans 13"] },
     { title: "Elf", src: "cbQZ8GK2usU" },
 ];
 
 function changeButton(mode) {
+    if (movies.length < 1) {
+        submitButton.innerText = "That's it! No more clips :(";
+        submitButton.style.background = "rgb(0, 148, 247)";
+        submitButton.disabled = true;
+        scoreEl.innerHTML = `Score: <strong>${playerScore}</strong> out of <strong>${totalMovies}</strong>`;
+        return;
+    }
     if (mode == "next") {
         submitButton.onclick = function () {
             changeSRC();
@@ -135,7 +145,6 @@ function changeButton(mode) {
 function updateScore(amount) {
     playerScore = playerScore + amount;
     scoreEl.innerHTML = `Score: <strong>${playerScore}</strong>`;
-    console.log("Updating Score");
 }
 
 function revealAnswer() {
@@ -190,13 +199,19 @@ function checkAnswer() {
         inputField.disabled = true;
         inputField.value = movies[videoID]["title"];
         movies.splice(videoID, 1);
-        changeButton("next");
         updateScore(1);
+        submitButton.disabled = true;
+        setTimeout(() => {
+            submitButton.disabled = false;
+            submitButton.focus();
+        }, 140);
+        changeButton("next");
     } else if (score < 0.25) {
         inputField.style.color = "Orange";
     } else {
         inputField.style.color = "Red";
     }
 }
-console.log("Movies:", movies.length);
+let totalMovies = movies.length;
+console.log("Movies:", totalMovies);
 changeSRC();

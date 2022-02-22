@@ -1,23 +1,23 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 /* Color Pallet: https://htmlcolors.com/palette/1418/dark1 */
 body {
     max-width: 900px;
     background-color: #1c1c1d;
     margin: auto;
-    font-family: 'Exo', sans-serif;
+    font-family: "Exo", sans-serif;
     color: white;
 }
 
 h1 {
     font-weight: 700;
-    color: #A0A5A6;
+    color: #a0a5a6;
     text-align: center;
     font-size: 55px;
 }
 
 h2 {
     font-size: 20px;
-    color: #A0A5A6;
+    color: #a0a5a6;
     text-align: center;
     margin-bottom: 40px;
 }
@@ -34,7 +34,7 @@ h2 {
     flex-direction: column;
 }
 
-.version-number{
+.version-number {
     color: rgb(137, 15, 207);
     /* text-align: center; */
 }
@@ -46,7 +46,7 @@ h2 {
 
 .version-title {
     font-size: 30px;
-    color: #A0A5A6;
+    color: #a0a5a6;
     text-align: center;
 }
 
@@ -58,6 +58,6 @@ h2 {
     color: #ffa500;
 }
 
-.removed{
+.removed {
     color: #ff0000;
 }
