@@ -1,9 +1,9 @@
 function goToPage(destination) {
     var channelName = document.getElementById("channel-name").value.toUpperCase();
-    const nameExeptions = ["html-background","vgm"]
+    const nameExeptions = ["html-background", "vgm", "guess"];
 
-    if (channelName === "" && !(nameExeptions.includes(destination))) {
-        alert("Pleas enter a channel name");
+    if (channelName === "" && !nameExeptions.includes(destination)) {
+        alert("Pleas enter a channel name to use this feature");
     } else {
         switch (destination) {
             case "hangman":
@@ -14,12 +14,16 @@ function goToPage(destination) {
                 window.location.href = `quiz`;
                 break;
 
+            case "guess":
+                window.location.href = `guess`;
+                break;
+
             case "active-chat":
                 window.location.href = `active-chat/?channel=${channelName}&bg=${document.getElementById("active-chat-bg-color").value}`;
                 break;
 
             case "html-background":
                 window.location.href = `background/${document.getElementById("html-bg-type").value}/?text=${document.getElementById("html-bg-custom-text").value}`;
-        };
+        }
     }
 }
