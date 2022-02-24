@@ -33,7 +33,7 @@ let movies = [
     { title: "X-Men: Days of future past", src: "T9GFyZ5LREQ", alt: ["xmen", "days of future past"] },
     { title: "Deadpool", src: "tLmStxxzhkI" },
     { title: "Tenet", src: "4xj0KRqzo-0" },
-    { title: "The Dark Knight", src: "nyepdtx_UI4", alt: ["Batman The Dark Knight", "Batman: The Dark Knight"] },
+    { title: "The Dark Knight", src: "H6iEH-qgld0", alt: ["Batman The Dark Knight", "Batman: The Dark Knight"] },
     { title: "Inception", src: "TAbbJT0ZXmk" },
     { title: "The Avengers", src: "SLD9xzJ4oeU", alt: ["Avengers"] },
     { title: "Mission Impossible: Ghost Protocol", src: "qtA0JS1lBaY", alt: ["Mission Impossible", "Ghost Protocol", "Mission Impossible Ghost Protocol", "MI Ghost Protocol", "MI: Ghost Protocol"] },
@@ -46,7 +46,11 @@ let movies = [
     { title: "Ghostbusters", src: "7_pR6mUYtOo" },
     { title: "Baywatch", src: "WDuIl_uPY_s" },
     { title: "Now you see me 2", src: "YmGBAiHnK0U", alt: ["Now you see me"] },
-    { title: "Pirates of the Caribbean: The Curse of the Black Pearl", src: "8UseXb_DNhE", alt: ["Pirates of the Caribbean", "the curse of the black perl"] },
+    {
+        title: "Pirates of the Caribbean: Dead Man's Chest",
+        src: "9smFLklOmlY",
+        alt: ["Pirates of the Caribbean", "Dead Man's Chest", "Pirates of the Caribbean Dead Man's Chest", "Pirates of the Caribbean: Dead Mans Chest", "Pirates of the Caribbean Dead Mans Chest"],
+    },
     { title: "Anchorman: The Legend of Ron Burgundy", src: "ipsPgNEmAXI", alt: ["Anchorman"] },
     { title: "Ace Ventura", src: "khyXMXFSufE" },
     { title: "Shrek 2", src: "A_HjMIjzyMU" },
@@ -113,7 +117,22 @@ let movies = [
     { title: "The Greatest Showman", src: "g9r5PFZihC4" },
     { title: "Titanic", src: "RXii-MAqt5E" },
     { title: "Ocean's Thirteen", src: "7oM7-Jsa168", alt: ["Oceans Thirteen", "Ocean's 13", "Oceans 13"] },
-    { title: "Elf", src: "cbQZ8GK2usU" },
+    { title: "Finding Nemo", src: "XWuPGKLJXe8" },
+    { title: "Night at the museum", src: "fHrxjYMRJ4Q" },
+    { title: "Avatar", src: "yHoB54D2DM4" },
+    { title: "WALL-E", src: "RYMfE1i5MC8", alt: ["WALLE", "WALL E", "WALLIE"] },
+    { title: "Grease", src: "pj-78jmpUHg" },
+    { title: "Dodgeball", src: "peUyLXrgYZ0" },
+    { title: "Up", src: "0WC3m6rfIMY" },
+    { title: "E.T.", src: "oR1-UFrcZ0k", alt: ["ET", "E T", "E.T"] },
+    { title: "The Shawshank Redemption", src: "B1KsZo_f0YE", alt: ["Shawshank", "Shawshank Redemption"] },
+    { title: "Good Will Hunting", src: "GW9YZcn8Tik" },
+    { title: "Ted", src: "rrJMRcsuUVA" },
+    { title: "Bruce Almighty", src: "ICloNwrg-_w" },
+    { title: "Interstellar", src: "pHFYSLjKLRg" },
+    { title: "21 Jump Street", src: "LChzxQtCw8A" },
+    { title: "Frozen", src: "H-_Wx7VETxE" },
+    { title: "Big Hero 6", src: "uEeBXUUOBiI", alt: ["Big Hero Six"] },
 ];
 
 function changeButton(mode) {
@@ -215,3 +234,4 @@ function checkAnswer() {
 let totalMovies = movies.length;
 console.log("Movies:", totalMovies);
 changeSRC();
+//playLast();
