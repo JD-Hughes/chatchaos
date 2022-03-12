@@ -222,6 +222,11 @@ function checkAnswer() {
         }
     }
     score = compareString(inputField.value, titleAnswers);
+    submitButton.disabled = true;
+    setTimeout(() => {
+        submitButton.disabled = false;
+        if (score < 0.1) submitButton.focus();
+    }, 140);
     if (score < 0.1) {
         inputField.style.color = "rgb(104, 255, 74)";
         inputField.style.textAlign = "center";
@@ -229,11 +234,6 @@ function checkAnswer() {
         inputField.value = movies[videoID]["title"];
         movies.splice(videoID, 1);
         updateScore(1);
-        submitButton.disabled = true;
-        setTimeout(() => {
-            submitButton.disabled = false;
-            submitButton.focus();
-        }, 140);
         changeButton("next");
     } else if (score < 0.25) {
         inputField.style.color = "Orange";
