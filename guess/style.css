@@ -29,6 +29,7 @@ h3 {
 
 iframe {
     margin-top: -90px;
+    pointer-events: none;
 }
 
 input {
@@ -59,6 +60,18 @@ input {
     background-color: rgba(0, 0, 0, 0.8);
     padding: 0.25em 0.4em;
     border-bottom-right-radius: 0.25em;
+}
+
+#mouse-btn {
+    font-size: 1em;
+    color: rgb(128, 1, 121);
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 0.5em 1em;
+    border-bottom-left-radius: 0.25em;
 }
 
 /* input {

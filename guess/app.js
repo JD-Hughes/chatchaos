@@ -193,6 +193,7 @@ function changeSRC() {
     inputField.style.textAlign = "left";
     inputField.disabled = false;
     inputField.value = "";
+    disablePointer();
 }
 
 function playLast() {
@@ -211,6 +212,15 @@ function compareString(inputString, comparisonList) {
         score = (fuseScore + lengthScore) / 2;
     }
     return score;
+}
+
+function enablePointer() {
+    player.style.pointerEvents = "all";
+    alert("Mouse control enabled. No cheating :)");
+}
+
+function disablePointer() {
+    player.style.pointerEvents = "none";
 }
 
 function checkAnswer() {
